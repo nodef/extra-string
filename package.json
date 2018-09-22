@@ -1,0 +1,24 @@
+{
+  "name": "extra-string",
+  "version": "0.0.1",
+  "description": "Extra methods for string.",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodef/extra-string.git"
+  },
+  "keywords": [
+    "extra",
+    "string",
+    "merferry"
+  ],
+  "author": "wolfram77@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nodef/extra-string/issues"
+  },
+  "homepage": "https://github.com/nodef/extra-string#readme"
+}
