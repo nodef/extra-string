@@ -1,24 +1,40 @@
 {
   "name": "extra-string",
-  "version": "0.0.2",
-  "description": "Extra methods for string.",
+  "version": "0.1.0",
+  "description": "Standard utility methods for string.",
   "main": "index.js",
   "scripts": {
+    "prepublishOnly": "node ./prepublish",
+    "browserify": "browserify index.js -o index.web.js -s Integer",
+    "uglifyjs": "uglifyjs -c -m -o index.min.js index.web.js",
     "test": "exit"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nodef/extra-string.git"
   },
   "keywords": [
     "extra",
     "string",
+    "standard",
+    "utility",
+    "method",
+    "text",
+    "manipulation",
+    "function",
     "merferry"
   ],
-  "author": "wolfram77@gmail.com",
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodef/extra-string.git"
+  },
   "bugs": {
     "url": "https://github.com/nodef/extra-string/issues"
   },
-  "homepage": "https://github.com/nodef/extra-string#readme"
+  "homepage": "https://github.com/nodef/extra-string#readme",
+  "author": "wolfram77@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^16.2.3",
+    "find-npm-prefix": "^1.0.2",
+    "recast": "^0.16.1",
+    "tempy": "^0.2.1",
+    "uglify-es": "^3.3.9"
+  }
 }
