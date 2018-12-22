@@ -16,7 +16,7 @@ const EOL = os.EOL;
 
 // Get filename.
 function resolve(pth) {
-  return pth.startsWith('./') && path.extname(pth)===''? pth+'.js':pth;
+  return path.extname(pth)===''? pth+'.js':pth;
 };
 
 // Get requires from code.
