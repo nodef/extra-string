@@ -14,10 +14,14 @@ const STDIO = [0, 1, 2];
 const EOL = os.EOL;
 
 
+// Get filename.
+function resolve(pth) {
+  return pth.startsWith('./') && path.extname(pth)===''? pth+'.js':pth;
+};
+
 // Get requires from code.
 function pkgRequires(pth, z=[]) {
-  pth = require.resolve(pth);
-  var dat = fs.readFileSync(pth, 'utf8');
+  var dat = fs.readFileSync(resolve(pth), 'utf8');
   var pkgs = [], re = /require\(\'(.*?)\'\)/g;
   for(var m=null; (m=re.exec(dat))!=null;)
   { pkgs.push(m[1]); z.push(m[1]); }
@@ -44,8 +48,6 @@ function pkgUpdate(pkg, o) {
 
 // Scatter a file to package.
 function pkgScatter(pth, o) {
-  console.log('-pkgScatter:', pth, require.resolve(pth));
-  pth = require.resolve(pth);
   var name = path.basename(pth);
   name = name.substring(0, name.length-path.extname(name).length);
   var pre = pth.substring(0, pth.length-path.extname(pth).length);
@@ -60,8 +62,9 @@ function pkgScatter(pth, o) {
   var dir = tempy.directory();
   for(var r of requires) {
     if(!/^[\.\/]/.test(r)) continue;
-    var src = require.resolve(path.join(path.dirname(pth), r));
-    var dst = require.resolve(path.join(dir, r));
+    r = resolve(r);
+    var src = path.join(path.dirname(pth), r);
+    var dst = path.join(dir, r);
     fs.copyFileSync(src, dst);
   }
   fs.writeFileSync(path.join(dir, 'package.json'), JSON.stringify(pkg, null, 2));
@@ -103,7 +106,7 @@ function pkgMinify(o) {
 async function shell(a) {
   var o = {org: ORG};
   for(var f of fs.readdirSync('scripts'))
-    if(f!=='index.js' && path.extname(f)==='.js') pkgScatter('./scripts/'+f, o);
+    if(f!=='index.js' && path.extname(f)==='.js') pkgScatter('scripts/'+f, o);
   var out = await bundle('scripts/index.js');
   fs.writeFileSync('index.js', out);
   pkgMinify();
