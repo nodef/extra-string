@@ -60,8 +60,8 @@ function pkgScatter(pth, o) {
   var dir = tempy.directory();
   for(var r of requires) {
     if(!/^[\.\/]/.test(r)) continue;
-    var src = path.join(path.dirname(pth), r);
-    var dst = path.join(dir, r);
+    var src = require.resolve(path.join(path.dirname(pth), r));
+    var dst = require.resolve(path.join(dir, r));
     fs.copyFileSync(src, dst);
   }
   fs.writeFileSync(path.join(dir, 'package.json'), JSON.stringify(pkg, null, 2));

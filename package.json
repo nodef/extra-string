@@ -1,6 +1,6 @@
 {
   "name": "extra-string",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Standard utility methods for string.",
   "main": "index.js",
   "scripts": {
