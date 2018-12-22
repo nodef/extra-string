@@ -1,5 +1,5 @@
-const commonPrefix = require('string-commonprefix');
-const jaroDistance = require('string-jarodistance');
+const commonPrefix = require('./common-prefix');
+const jaroDistance = require('./jaro-distance');
 function jaroWinklerDistance(s1, s2, p, bt) {
   var p = p||0.1, bt = bt||0.7;
   var dj = jaroDistance(s1, s2);

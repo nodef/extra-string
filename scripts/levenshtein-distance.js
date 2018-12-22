@@ -1,4 +1,4 @@
-const uncommonInfix = require('string-uncommoninfix');
+const uncommonInfix = require('./uncommon-infix');
 function levenshteinDistance(s1, s2, ins=1, del=1, sub=1) {
   // 1. remove common prefix, suffix
   var s = uncommonInfix(s1, s2);
