@@ -16,7 +16,6 @@ const EOL = os.EOL;
 
 // Get requires from code.
 function pkgRequires(pth, z=[]) {
-  pth = require.resolve(pth);
   var dat = fs.readFileSync(pth, 'utf8');
   var pkgs = [], re = /require\(\'(.*?)\'\)/g;
   for(var m=null; (m=re.exec(dat))!=null;)
@@ -44,6 +43,7 @@ function pkgUpdate(pkg, o) {
 
 // Scatter a file to package.
 function pkgScatter(pth, o) {
+  pth = require.resolve(pth);
   var name = path.basename(pth);
   name = name.substring(0, name.length-path.extname(name).length);
   var pre = pth.substring(0, pth.length-path.extname(pth).length);
