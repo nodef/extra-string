@@ -39,7 +39,8 @@ function pkgUpdate(pkg, o) {
   p.description = o.readme.replace(/\r?\n[\s\S]*/, '').replace(/[\_\*\[\]]/g, '');
   p.main = o.main||'index.js';
   p.scripts = {test: 'exit'};
-  p.keywords.push(o.name);
+  Array.prototype.push.apply(p.keywords, o.name.split(/\W/));
+  p.keywords = Array.from(new Set(p.keywords));
   for(var d of Object.keys(p.dependencies||[]))
     if(!o.requires.includes(d)) p.dependencies[d] = undefined;
   p.devDependencies = undefined;
