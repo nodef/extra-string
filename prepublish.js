@@ -43,6 +43,7 @@ function pkgUpdate(pkg, o) {
 
 // Scatter a file to package.
 function pkgScatter(pth, o) {
+  console.log('-pkgScatter:', pth, require.resolve(pth));
   pth = require.resolve(pth);
   var name = path.basename(pth);
   name = name.substring(0, name.length-path.extname(name).length);
