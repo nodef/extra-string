@@ -16,6 +16,7 @@ const EOL = os.EOL;
 
 // Get requires from code.
 function pkgRequires(pth, z=[]) {
+  pth = require.resolve(pth);
   var dat = fs.readFileSync(pth, 'utf8');
   var pkgs = [], re = /require\(\'(.*?)\'\)/g;
   for(var m=null; (m=re.exec(dat))!=null;)
@@ -100,7 +101,7 @@ function pkgMinify(o) {
 async function shell(a) {
   var o = {org: ORG};
   for(var f of fs.readdirSync('scripts'))
-    if(f!=='index.js' && path.extname(f)==='.js') pkgScatter('scripts/'+f, o);
+    if(f!=='index.js' && path.extname(f)==='.js') pkgScatter('./scripts/'+f, o);
   var out = await bundle('scripts/index.js');
   fs.writeFileSync('index.js', out);
   pkgMinify();
