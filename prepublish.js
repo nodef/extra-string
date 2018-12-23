@@ -16,7 +16,8 @@ const EOL = os.EOL;
 
 // Get filename.
 function resolve(pth) {
-  return path.extname(pth)===''? pth+'.js':pth;
+  var ext = path.extname(pth);
+  return ['.js', '.ts', '.json'].includes(ext)? pth:pth+'.js';
 };
 
 // Get requires from code.
@@ -41,6 +42,7 @@ function pkgUpdate(pkg, o) {
   p.scripts = {test: 'exit'};
   Array.prototype.push.apply(p.keywords, o.name.split(/\W/));
   p.keywords = Array.from(new Set(p.keywords));
+  p.dependencies = Object.assign(p.dependencies||{}, p.devDependencies);
   for(var d of Object.keys(p.dependencies||[]))
     if(!o.requires.includes(d)) p.dependencies[d] = undefined;
   p.devDependencies = undefined;
