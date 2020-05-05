@@ -1,11 +1,9 @@
-Standard utility methods for [string].<br>
-Browserified, minified module: [extra-string.min].
+A [string] is a sequence of characters.
+
+> Stability: Experimental.
 
 ```javascript
-const String = require('extra-string');
-// String.WHITESPACE
-// String.PUNCTUATION
-// ...
+const string = require('extra-string');
 ```
 
 Contants:
