@@ -6,7 +6,7 @@
  * @param I end index (end)
  */
 function fill(x: string, v: string, i: number=0, I: number=x.length): string {
-  var vs = v.repeat(I-i).slice(0, I-i);
-  return x.slice(0, i) + vs + x.slice(I);
+  var cs = v.repeat(I-i).slice(0, I-i);
+  return x.slice(0, i) + cs + x.slice(I);
 }
 export default fill;
