@@ -1,6 +1,6 @@
 {
   "name": "extra-string",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "A string is a sequence of characters.",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,13 @@
   "author": "wolfram77@gmail.com",
   "license": "MIT",
   "devDependencies": {
+    "@extra-array/chunk": "^2.6.63",
+    "@extra-array/index": "^2.6.66",
+    "@extra-array/interleave": "^2.6.66",
+    "@extra-array/rotate-update": "^2.6.59",
     "extra-build": "^1.0.118"
+  },
+  "dependencies": {
+    "@extra-array/index-range": "^2.6.66"
   }
 }
