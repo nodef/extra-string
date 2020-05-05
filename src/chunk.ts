@@ -7,6 +7,7 @@ import arrayChunk from '@extra-array/chunk';
  * @returns chunks
  */
 function chunk(x: string, n: number=1): string[] {
-  return arrayChunk(x as unknown as string[], n) as unknown as string[];
+  // @ts-ignore
+  return arrayChunk(x, n);
 }
 export default chunk;
