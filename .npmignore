@@ -1,7 +1,0 @@
-# jekyll config
-_config.yml
-
-# scripts
-scripts/
-bundle.js
-prepublish.js
