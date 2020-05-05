@@ -1,0 +1,5 @@
+/**
+ * The string 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.
+ */
+const UPPERCASE: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+export default UPPERCASE;
