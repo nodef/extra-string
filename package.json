@@ -1,21 +1,19 @@
 {
   "name": "extra-string",
-  "version": "2.0.0",
-  "description": "Standard utility methods for string.",
+  "version": "2.0.1",
+  "description": "A string is a sequence of characters.",
   "main": "index.js",
   "scripts": {
+    "einit": "ebuild init",
+    "ecode": "ebuild update --docs false",
+    "eupdate": "ebuild update",
+    "escatter": "ebuild scatter",
     "test": "exit"
   },
+  "runkitExampleFilename": "example.js",
   "keywords": [
     "extra",
-    "string",
-    "standard",
-    "utility",
-    "method",
-    "text",
-    "manipulation",
-    "function",
-    "merferry"
+    "string"
   ],
   "repository": {
     "type": "git",
@@ -28,8 +26,6 @@
   "author": "wolfram77@gmail.com",
   "license": "MIT",
   "devDependencies": {
-    "find-npm-prefix": "^1.0.2",
-    "recast": "^0.18.7",
-    "tempy": "^0.5.0"
+    "extra-build": "^1.0.118"
   }
 }
