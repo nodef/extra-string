@@ -1,8 +1,13 @@
 {
   "name": "extra-string",
-  "version": "2.0.14",
+  "version": "2.0.15",
   "description": "A string is a sequence of characters.",
   "main": "index.js",
+  "module": "index.mjs",
+  "exports": {
+    "require": "./index.js",
+    "import": "./index.mjs"
+  },
   "scripts": {
     "einit": "ebuild init",
     "ecode": "ebuild update --docs false",
