@@ -4,8 +4,6 @@
  * @param n times
  */
 function repeat(x: string, n: number): string {
-  for(var a=''; n>0; n--)
-    a += x;
-  return a;
+  return x.repeat(n);
 }
 export default repeat;

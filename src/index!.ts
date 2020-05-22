@@ -5,7 +5,7 @@ import arrayIndex from '@extra-array/index';
  * @param x a string
  * @param i index (-ve: from right)
  */
-function index(x: string, i: number): number {
+function index(x: string, i: number=0): number {
   // @ts-ignore
   return arrayIndex(x, i);
 }

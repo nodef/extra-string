@@ -1,6 +1,6 @@
 {
   "name": "extra-string",
-  "version": "2.0.17",
+  "version": "2.0.18",
   "description": "A string is a sequence of characters.",
   "main": "index.js",
   "module": "index.mjs",
@@ -37,8 +37,20 @@
     "@extra-array/index": "^2.8.23",
     "@extra-array/index-range": "^2.8.23",
     "@extra-array/interleave": "^2.8.23",
-    "@extra-array/rotate-update": "^2.6.59",
     "@extra-array/sort-on-update": "^2.7.8",
+    "@extra-iterable/count": "^2.3.36",
+    "@extra-iterable/count-as": "^2.3.36",
+    "@extra-iterable/entries": "^2.3.36",
+    "@extra-iterable/every": "^2.3.36",
+    "@extra-iterable/keys": "^2.3.36",
+    "@extra-iterable/max": "^2.3.36",
+    "@extra-iterable/max-index": "^2.3.36",
+    "@extra-iterable/min": "^2.3.36",
+    "@extra-iterable/min-index": "^2.3.36",
+    "@extra-iterable/search": "^2.3.36",
+    "@extra-iterable/some": "^2.3.36",
+    "@extra-iterable/values": "^2.3.36",
+    "@extra-math/mod": "^1.0.15",
     "extra-build": "^1.0.154"
   }
 }

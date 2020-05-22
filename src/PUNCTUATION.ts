@@ -1,5 +1,5 @@
 /**
- * The string '!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~'.
+ * Punctuation symbols.
  */
-const PUNCTUATION: string = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
+const PUNCTUATION = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
 export default PUNCTUATION;

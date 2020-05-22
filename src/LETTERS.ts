@@ -1,5 +1,8 @@
+import UPPERCASE from './UPPERCASE';
+import LOWERCASE from './LOWERCASE';
+
 /**
- * The string '0123456789'.
+ * Comnination of uppercase, lowercase.
  */
-const LETTERS: string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const LETTERS = UPPERCASE + LOWERCASE;
 export default LETTERS;

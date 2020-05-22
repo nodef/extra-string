@@ -1,10 +1,12 @@
 /**
  * Sets character at index.
  * @param x a string
- * @param i index (-ve: from right)
- * @param v value
+ * @param i index
+ * @param v character
  */
 function set(x: string, i: number, v: string): string {
-  return x.slice(0, i) + v + x.slice(i+v.length);
+  var l = x.slice(0, i);
+  var r = x.slice(i+v.length); 
+  return l + v + r;
 }
 export default set;

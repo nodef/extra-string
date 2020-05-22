@@ -7,7 +7,9 @@
  * @param I read end index (end)
  */
 function copy(x: string, y: string, j: number=0, i: number=0, I: number=y.length): string {
-  var y1 = y.slice(i, I);
-  return x.slice(0, j) + y1 + x.slice(j+y1.length)
+  var ym = y.slice(i, I);
+  var xl = x.slice(0, j);
+  var xr = x.slice(j+ym.length);
+  return xl + ym + xr;
 }
 export default copy;

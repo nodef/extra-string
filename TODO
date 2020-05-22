@@ -1,6 +1,10 @@
 - https://github.com/lahmatiy/fixed-width-string
 
 
+
+
+
+
 https://github.com/watson/progress-string
 https://github.com/nodejs/string_decoder
 https://github.com/sindresorhus/string-length
@@ -13,7 +17,6 @@ https://github.com/Bamblehorse/tiny
 https://github.com/sindresorhus/indent-string
 https://github.com/mathiasbynens/String.prototype.at
 https://github.com/adambisek/string-pixel-width
-https://github.com/nbubna/Case
 https://github.com/chalk/strip-ansi
 https://github.com/sindresorhus/get-urls
 https://github.com/sindresorhus/crypto-random-string

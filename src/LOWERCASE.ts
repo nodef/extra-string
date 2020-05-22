@@ -1,5 +1,5 @@
 /**
- * The string 'abcdefghijklmnopqrstuvwxyz'.
+ * English letters a-z.
  */
-const LOWERCASE: string = 'abcdefghijklmnopqrstuvwxyz';
+const LOWERCASE = 'abcdefghijklmnopqrstuvwxyz';
 export default LOWERCASE;

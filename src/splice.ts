@@ -1,14 +1,13 @@
 /**
  * Removes or replaces existing characters.
  * @param x a string
- * @param i remove index
+ * @param i remove index (0)
  * @param n number of characters to remove (rest)
- * @param cs characters to insert
- * @returns [removed, string]
+ * @param vs characters to insert
  */
-function splice(x: string, i: number, n: number=x.length-i, cs: string): [string, string] {
-  var r = x.slice(i, i+n);
-  var u = x.slice(0, i) + cs + x.slice(i+n);
-  return [r, u];
+function splice(x: string, i: number=0, n: number=x.length-i, vs: string): string {
+  var l = x.slice(0, i);
+  var r = x.slice(i+n);
+  return l + vs + r;
 }
 export default splice;

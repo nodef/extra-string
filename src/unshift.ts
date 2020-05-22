@@ -1,10 +1,9 @@
 /**
  * Adds characters to the start.
  * @param x a string
- * @param cs characters to add
- * @returns string
+ * @param vs characters to add
  */
-function unshift(x: string, cs: string): string {
-  return cs + x;
+function unshift(x: string, vs: string): string {
+  return vs + x;
 }
 export default unshift;
