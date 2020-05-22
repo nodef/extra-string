@@ -1,6 +1,6 @@
 {
   "name": "extra-string",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "description": "A string is a sequence of characters.",
   "main": "index.js",
   "scripts": {
