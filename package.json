@@ -1,6 +1,6 @@
 {
   "name": "extra-string",
-  "version": "2.0.12",
+  "version": "2.0.13",
   "description": "A string is a sequence of characters.",
   "main": "index.js",
   "scripts": {
@@ -26,16 +26,14 @@
   "author": "wolfram77@gmail.com",
   "license": "MIT",
   "devDependencies": {
-    "@extra-array/chunk": "^2.6.63",
-    "@extra-array/cut": "^2.6.66",
-    "@extra-array/cut-right": "^2.6.66",
-    "@extra-array/index": "^2.6.66",
-    "@extra-array/interleave": "^2.6.66",
+    "@extra-array/chunk": "^2.8.23",
+    "@extra-array/cut": "^2.8.23",
+    "@extra-array/cut-right": "^2.6.73",
+    "@extra-array/index": "^2.8.23",
+    "@extra-array/index-range": "^2.8.23",
+    "@extra-array/interleave": "^2.8.23",
     "@extra-array/rotate-update": "^2.6.59",
-    "@extra-array/sort-on-update": "^2.6.66",
-    "extra-build": "^1.0.118"
-  },
-  "dependencies": {
-    "@extra-array/index-range": "^2.6.66"
+    "@extra-array/sort-on-update": "^2.7.8",
+    "extra-build": "^1.0.154"
   }
 }
