@@ -10,3 +10,17 @@
 - https://www.npmjs.com/package/string-replace-async
 - https://www.npmjs.com/package/unicoderegexp
 - https://www.npmjs.com/package/strings
+
+
+word-puzzle-shuffler	string	shuffle given two words properly so user can find out the word into the puzzle
+stringer-tools	string	String manipulations in JS
+capitalize-decapitalize	string	NPM package for capitalizing or decapitalizing every first letter of the word. Letter case option(Upper & lower case) for every word in a sentence.
+cldr-data	string	Npm module for Unicode CLDR JSON data
+truncate-markup-string	string	Truncates a string to a charLimit, ignoring specified markup tags, with an optional pretty ellipsis ending.
+strmgk	string	Removes all spaces from a string
+string-things	string	A library which provides some basic string manipulation functions
+npm-similarity	string	Returns a difference between two strings using soundex, levenshtein distance or both.
+string-manipulation	string	A plugin for string as well as number manipulation. Use the method and pass the value to it to get the desired value.
+damerau-levenshtein-js	string	Fast and easy to use module that calculates synchronously and asynchronously (promises) the Damerau-Levenshtein distance between strings. For example, it can help in detecting fake celebrities accounts created for scamming.
+string-manager	string	npm dependency to manage your string
+normalize-diacritics	string	Remove accents/ diacritics in string
