@@ -1,6 +1,18 @@
-A [string] is a sequence of characters.
+A [string] is a sequence of characters.<br>
+📦 [Node.js](https://www.npmjs.com/package/extra-string),
+🌐 [Web](https://www.npmjs.com/package/extra-string.web),
+📜 [Files](https://unpkg.com/extra-string/),
+📰 [Docs](https://nodef.github.io/extra-string/).
 
-> Stability: Experimental.
+This package is available in both *Node.js* and *Web* formats. The web format
+is exposed as `extra_string` standalone variable and can be loaded from
+[jsDelivr CDN].
+
+> Stability: [Experimental](https://www.youtube.com/watch?v=L1j93RnIxEo).
+
+[jsDelivr CDN]: https://cdn.jsdelivr.net/npm/extra-string.web/index.js
+
+<br>
 
 ```javascript
 const string = require('extra-string');
@@ -84,7 +96,6 @@ Evaluate methods:
 - [tverskyIndex](https://www.npmjs.com/package/@extra-string/tversky-index)
 
 
-[![nodef](https://i.imgur.com/UQxfzCk.jpg)](https://nodef.github.io)
+[![](https://i.imgur.com/UQxfzCk.jpg)](https://nodef.github.io)
 
 [string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
-[extra-string.min]: https://www.npmjs.com/package/extra-string.min

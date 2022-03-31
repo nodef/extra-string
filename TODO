@@ -1,4 +1,6 @@
 - string.splice
+- _.capitalize
+- https://github.com/grncdr/js-capitalize
 - https://github.com/sindresorhus/slugify
 - https://www.npmjs.com/package/string-split
 - https://www.npmjs.com/package/is-posix-bracket
