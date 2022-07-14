@@ -859,7 +859,7 @@ export {end as right};
 // PART (TODO)
 // -----------
 
-import {chunk as arrayChunk} from "extra-array";
+// import {chunk as arrayChunk} from "extra-array";
 
 /**
  * Break string into chunks of given size.
@@ -867,45 +867,45 @@ import {chunk as arrayChunk} from "extra-array";
  * @param n chunk size (1)
  * @param s chunk step (n)
  */
-function chunk(x: string, n: number=1, s: number=n): string[] {
-  return arrayChunk(x as any, n, s) as any;
-}
+// function chunk(x: string, n: number=1, s: number=n): string[] {
+//   return arrayChunk(x as any, n, s) as any;
+// }
 
 
-import {infixes as arrayInfixes} from "extra-array";
+// import {infixes as arrayInfixes} from "extra-array";
 
 /**
  * Lists all possible infixes.
  * @param x a string
  * @param n number of values (-1 ⇒ any)
  */
-function infixes(x: string, n: number=-1): IterableIterator<string> {
-  return arrayInfixes(x as any, n) as any;
-}
+// function infixes(x: string, n: number=-1): IterableIterator<string> {
+//   return arrayInfixes(x as any, n) as any;
+// }
 
 
-import {prefixes as arrayPrefixes} from "extra-array";
+// import {prefixes as arrayPrefixes} from "extra-array";
 
 /**
  * Lists all possible prefixes.
  * @param x a string
  * @param n number of values (-1 ⇒ any)
  */
-function prefixes(x: string, n: number=-1): IterableIterator<string> {
-  return arrayPrefixes(x as any, n) as any;
-}
+// function prefixes(x: string, n: number=-1): IterableIterator<string> {
+//   return arrayPrefixes(x as any, n) as any;
+// }
 
 
-import {suffixes as arraySuffixes} from "extra-array";
+// import {suffixes as arraySuffixes} from "extra-array";
 
 /**
  * Lists all possible suffixes.
  * @param x a string
  * @param n number of values (-1 ⇒ any)
  */
-function suffixes(x: string, n: number=-1): IterableIterator<string> {
-  return arraySuffixes(x as any, n) as any;
-}
+// function suffixes(x: string, n: number=-1): IterableIterator<string> {
+//   return arraySuffixes(x as any, n) as any;
+// }
 
 
 
@@ -1194,16 +1194,16 @@ export function toPascalCase(x: string, re: RegExp=null): string {
  * @param start start index
  * @param count number of characters [length]
  */
-function cycle(x: string, start: number, count: number=x.length): string {
-  var X = x.length;
-  if(count<=0 || X===0) return "";
-  var start = index(x, start);
-  var a = x.slice(start, start+count);
-  count -= a.length;
-  for(var m=0, M=Math.floor(count/X); m<M; m++)
-    a += x;
-  return a += x.slice(0, count % X);
-}
+// function cycle(x: string, start: number, count: number=x.length): string {
+//   var X = x.length;
+//   if(count<=0 || X===0) return "";
+//   var start = index(x, start);
+//   var a = x.slice(start, start+count);
+//   count -= a.length;
+//   for(var m=0, M=Math.floor(count/X); m<M; m++)
+//     a += x;
+//   return a += x.slice(0, count % X);
+// }
 
 
 /**
@@ -1211,18 +1211,18 @@ function cycle(x: string, start: number, count: number=x.length): string {
  * @param x a string
  * @param n rotate amount (+ve: left, -ve: right)
  */
-function rotate(x: string, n: number): string {
-  var i = mod(n, x.length);
-  return x.slice(i) + x.slice(0, i);
-}
+// function rotate(x: string, n: number): string {
+//   var i = mod(n, x.length);
+//   return x.slice(i) + x.slice(0, i);
+// }
 
-function replacePrefix(str, pre, rep) {
-  return str.startsWith(pre)? rep+str.substr(pre.length):str;
-}
+// function replacePrefix(str, pre, rep) {
+//   return str.startsWith(pre)? rep+str.substr(pre.length):str;
+// }
 
-function replaceSuffix(str, suf, rep) {
-  return str.endsWith(suf)? str.substr(0, str.length-suf.length)+rep:str;
-}
+// function replaceSuffix(str, suf, rep) {
+//   return str.endsWith(suf)? str.substr(0, str.length-suf.length)+rep:str;
+// }
 
 // function* unique<T, U=T>(x: Iterable<T>, fc: compareFn<T|U>=null, fm: mapFn<T, T|U>=null): IterableIterator<T> {
 //   yield* union([], x, fc, fm);
@@ -1231,79 +1231,79 @@ function replaceSuffix(str, suf, rep) {
 // swapRange()
 
 
-import {cutAt as arrayCut} from "extra-array";
+// import {cutAt as arrayCut} from "extra-array";
 
 /**
  * Breaks string at given indices.
  * @param x a string
  * @param is split indices (sorted)
  */
-function cut(x: string, is: Iterable<number>): string[] {
-  return arrayCut(x as any, is as any) as any;
-}
+// function cut(x: string, is: Iterable<number>): string[] {
+//   return arrayCut(x as any, is as any) as any;
+// }
 
-import {cutAtRight as arrayCutRight} from "extra-array";
+// import {cutAtRight as arrayCutRight} from "extra-array";
 
 /**
  * Breaks string after given indices.
  * @param x a string
  * @param is split indices (sorted)
  */
-function cutRight(x: string, is: Iterable<number>): string[] {
-  return arrayCutRight(x as any, is as any) as any;
-}
+// function cutRight(x: string, is: Iterable<number>): string[] {
+//   return arrayCutRight(x as any, is as any) as any;
+// }
 
 
 
-function unionCompare(x: string, y: string, fn: any=null): string {
-  // var fn = fn||cmp;
-  var s = new Set<string>();
-  var a = x;
-  y: for(var v of y) {
-    for(var u of x)
-      if(fn(u, v)===0) continue y;
-    for(var u of s)
-      if(fn(u, v)===0) continue y;
-    a += v; s.add(v);
-  }
-  return a;
-}
+// function unionCompare(x: string, y: string, fn: any=null): string {
+//   // var fn = fn||cmp;
+//   var s = new Set<string>();
+//   var a = x;
+//   y: for(var v of y) {
+//     for(var u of x)
+//       if(fn(u, v)===0) continue y;
+//     for(var u of s)
+//       if(fn(u, v)===0) continue y;
+//     a += v; s.add(v);
+//   }
+//   return a;
+// }
 
-function unionMap(x: string, y: string, fn: any=null): string {
-  // var fn = fn||id;
-  var s = new Set();
-  var a = "", i = -1, j = -1;
-  for(var u of x) {
-    var u1 = fn(u, ++i, x);
-    s.add(u1); a += u;
-  }
-  for(var v of y) {
-    var v1 = fn(v, ++j, y);
-    if(!s.has(v1)) { s.add(v1); a += v; }
-  }
-  return a;
-}
+// function unionMap(x: string, y: string, fn: any=null): string {
+//   // var fn = fn||id;
+//   var s = new Set();
+//   var a = "", i = -1, j = -1;
+//   for(var u of x) {
+//     var u1 = fn(u, ++i, x);
+//     s.add(u1); a += u;
+//   }
+//   for(var v of y) {
+//     var v1 = fn(v, ++j, y);
+//     if(!s.has(v1)) { s.add(v1); a += v; }
+//   }
+//   return a;
+// }
 
-function unionDual(x: string, y: string, fc: any=null, fm: any=null): string {
-  // var fc = fc||cmp, fm = fm||id;
-  var s = new Set<string>();
-  var a = x, j = -1;
-  y: for(var v of y) {
-    var v1 = fm(v, ++j, y);
-    var i = -1;
-    for(var u of x) {
-      var u1 = fm(u, ++i, x);
-      if(fc(u1, v1)===0) continue y;
-    }
-    var i = -1;
-    for(var u of s) {
-      var u1 = fm(u, ++i, y);
-      if(fc(u1, v1)===0) continue y;
-    }
-    a += v; s.add(v);
-  }
-  return a;
-}
+// function unionDual(x: string, y: string, fc: any=null, fm: any=null): string {
+//   // var fc = fc||cmp, fm = fm||id;
+//   var s = new Set<string>();
+//   var a = x, j = -1;
+//   y: for(var v of y) {
+//     var v1 = fm(v, ++j, y);
+//     var i = -1;
+//     for(var u of x) {
+//       var u1 = fm(u, ++i, x);
+//       if(fc(u1, v1)===0) continue y;
+//     }
+//     var i = -1;
+//     for(var u of s) {
+//       var u1 = fm(u, ++i, y);
+//       if(fc(u1, v1)===0) continue y;
+//     }
+//     a += v; s.add(v);
+//   }
+//   return a;
+// }
 
 /**
  * Gives characters present in any string.
@@ -1312,10 +1312,10 @@ function unionDual(x: string, y: string, fc: any=null, fm: any=null): string {
  * @param fc compare function (a, b)
  * @param fm map function (v, i, x)
  */
-function union(x: string, y: string, fc: any=null, fm: any=null): string {
-  if(fc) return unionDual(x, y, fc, fm);
-  else return unionMap(x, y, fm);
-}
+// function union(x: string, y: string, fc: any=null, fm: any=null): string {
+//   if(fc) return unionDual(x, y, fc, fm);
+//   else return unionMap(x, y, fm);
+// }
 
 
 
@@ -1756,68 +1756,68 @@ export function damerauLevenshteinDistance(x: string, y: string, ins: number=1, 
 // TODO
 // ====
 
-function mapReplace(str, map) {
-  for(var [k, v] of map)
-    str = str.replace(k, v);
-  return str;
-}
+// function mapReplace(str, map) {
+//   for(var [k, v] of map)
+//     str = str.replace(k, v);
+//   return str;
+// }
 
-function mapReplacePrefix(str, map, l=0) {
-  // 1. get max prefix length
-  if(!l) for(var k of map.keys()) {
-    l = l<k.length? k.length:l;
-  }
-  // 2. replace prefix
-  for(var i=l; i; i--) {
-    var k = str.substr(0, i);
-    if(map.has(k)) return map.get(k)+str.substr(i);
-  }
-  return str;
-}
+// function mapReplacePrefix(str, map, l=0) {
+//   // 1. get max prefix length
+//   if(!l) for(var k of map.keys()) {
+//     l = l<k.length? k.length:l;
+//   }
+//   // 2. replace prefix
+//   for(var i=l; i; i--) {
+//     var k = str.substr(0, i);
+//     if(map.has(k)) return map.get(k)+str.substr(i);
+//   }
+//   return str;
+// }
 
-function mapReplaceSuffix(str, map, l=0) {
-  // 1. get max suffix length
-  if(!l) for(var k of map.keys()) {
-    l = l<k.length? k.length:l;
-  }
-  // 2. replace suffix
-  for(var i=l; i; i--) {
-    var k = str.substr(-i);
-    if(map.has(k)) return str.substr(0, str.length-i)+map.get(k);
-  }
-  return str;
-}
+// function mapReplaceSuffix(str, map, l=0) {
+//   // 1. get max suffix length
+//   if(!l) for(var k of map.keys()) {
+//     l = l<k.length? k.length:l;
+//   }
+//   // 2. replace suffix
+//   for(var i=l; i; i--) {
+//     var k = str.substr(-i);
+//     if(map.has(k)) return str.substr(0, str.length-i)+map.get(k);
+//   }
+//   return str;
+// }
 
-function objectReplace(str, obj) {
-  for(var k in obj)
-    str = str.replace(k, obj[k]);
-  return str;
-}
-
-
-function objectReplacePrefix(str, obj, l=0) {
-  // 1. get max prefix length
-  if(!l) for(var k in obj) {
-    l = l<k.length? k.length:l;
-  }
-  // 2. replace prefix
-  for(var i=l; i; i--)  {
-    // var k = str.substr(0, i);
-    if(obj[k]!=null) return obj[k]+str.substr(i);
-  }
-  return str;
-}
+// function objectReplace(str, obj) {
+//   for(var k in obj)
+//     str = str.replace(k, obj[k]);
+//   return str;
+// }
 
 
-function objectReplaceSuffix(str, obj, l=0) {
-  // 1. get max suffix length
-  if(!l) for(var k in obj) {
-    l = l<k.length? k.length:l;
-  }
-  // 2. replace suffix
-  for(var i=l; i; i--) {
-    // var k = str.substr(-i);
-    if(obj[k]!=null) return str.substr(0, str.length-i)+obj[k];
-  }
-  return str;
-}
+// function objectReplacePrefix(str, obj, l=0) {
+//   // 1. get max prefix length
+//   if(!l) for(var k in obj) {
+//     l = l<k.length? k.length:l;
+//   }
+//   // 2. replace prefix
+//   for(var i=l; i; i--)  {
+//     // var k = str.substr(0, i);
+//     if(obj[k]!=null) return obj[k]+str.substr(i);
+//   }
+//   return str;
+// }
+
+
+// function objectReplaceSuffix(str, obj, l=0) {
+//   // 1. get max suffix length
+//   if(!l) for(var k in obj) {
+//     l = l<k.length? k.length:l;
+//   }
+//   // 2. replace suffix
+//   for(var i=l; i; i--) {
+//     // var k = str.substr(-i);
+//     if(obj[k]!=null) return str.substr(0, str.length-i)+obj[k];
+//   }
+//   return str;
+// }

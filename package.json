@@ -1,7 +1,7 @@
 {
   "name": "extra-string",
-  "version": "2.0.29",
-  "description": "A string is a sequence of characters.",
+  "version": "2.0.30",
+  "description": "A collection of common string functions.",
   "main": "index.js",
   "module": "index.mjs",
   "sideEffects": false,
@@ -14,11 +14,12 @@
     "build": "node ./build",
     "deploy": "node ./build deploy"
   },
-  "runkitExampleFilename": "example.js",
   "keywords": [
     "extra",
     "string"
   ],
+  "author": "wolfram77@gmail.com",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nodef/extra-string.git"
@@ -27,18 +28,13 @@
     "url": "https://github.com/nodef/extra-string/issues"
   },
   "homepage": "https://github.com/nodef/extra-string#readme",
-  "author": "wolfram77@gmail.com",
-  "license": "MIT",
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^21.0.3",
-    "@rollup/plugin-node-resolve": "^13.1.3",
-    "@types/node": "^17.0.23",
-    "extra-array": "^2.10.19",
-    "extra-build": "^2.0.31",
+    "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "extra-build": "^2.1.31",
     "extra-function": "^1.0.5",
-    "extra-iterable": "^2.5.22",
-    "extra-math": "^1.1.18",
+    "extra-math": "^1.3.21",
     "rollup-plugin-cleanup": "^3.2.1",
-    "rollup-plugin-dts": "^4.2.0"
+    "rollup-plugin-dts": "^4.2.2"
   }
 }
