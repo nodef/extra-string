@@ -219,6 +219,7 @@ string.tverskyDistance('pikachu', 'raichu', 3, 0.2, 0.4);
 
 
 [![](https://img.youtube.com/vi/zi0w7J7MCrk/maxresdefault.jpg)](https://www.youtube.com/watch?v=zi0w7J7MCrk)<br>
+[![DOI](https://zenodo.org/badge/149915096.svg)](https://zenodo.org/badge/latestdoi/149915096)
 
 
 [DIGITS]: https://nodef.github.io/extra-string/modules.html#DIGITS
