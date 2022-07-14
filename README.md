@@ -13,6 +13,30 @@ also *avoid copying slices* of a string, or even *concatenation of slices of*
 *strings*, by implementing it as a *series of lookups into existing strings*.
 Food for thought.
 
+This package provides functions for generating [spaces]; querying **about** a
+string such as [is], [isEmpty], [isCharacter], [index], [indexRange],
+[codePointRange]; **comparing** strings such as [compare], [isEqual]; getting
+**parts** of a string such as [get], [getAll], [set], [begin], [middle], [end];
+**searching** a string such as [longestCommonInfix], [longestCommonPrefix],
+[longestCommonSuffix], [longestUncommonInfixes]; **transforming** a string such
+as [toBaseline], [toSuperscript], [toSubscript]; **transforming case** of a
+string such as [toKebabCase], [toSnakeCase], [toCamelCase], [toPascalCase];
+finding **ngrams** in strings such as [ngrams], [uniqueNgrams], [countNgrams],
+[countUniqueNgrams], [countEachNgram], [matchingNgrams], [uniqueMatchingNgrams],
+[countMatchingNgrams], [countEachMatchingNgram], [countUniqueMatchingNgrams];
+and finding **similarity/distance** between strings such as [euclideanDistance],
+[hammingDistance], [jaccardIndex], [jaccardDistance], [sorensenDiceIndex],
+[sorensenDiceDistance], [tverskyIndex], [tverskyDistance], [jaroSimilarity],
+[jaroDistance], [jaroWinklerSimilarity], [jaroWinklerDistance],
+[levenshteinDistance], [damerauLevenshteinDistance].
+
+This package also provides **Array-like functions** for strings. These includes
+functions for **generating** a string such as [of], [from]; **transforming** a
+string such as [splice], [reverse], [sort]; and **functional behavior** such as
+[filter]. All **built-in** string functions are also included. Finally,
+**constants** for *ASCII characters*, and *minimum/maximum code point* are
+included.
+
 This package is available in both *Node.js* and *Web* formats. The web format
 is exposed as `extra_string` standalone variable and can be loaded from
 [jsDelivr CDN].
@@ -137,7 +161,6 @@ funcxion.parameters((x, y) => x+y);
 | [middle] | Get a portion of string from middle. |
 | [end] | Get rightmost part of string. |
 |  |  |
-| [symbolAt] | Get set-listed symbol at specified index in string. |
 | [longestCommonInfix] | Get the longest common infix between strings. |
 | [longestCommonPrefix] | Get the longest common prefix of strings. |
 | [longestCommonSuffix] | Get the longest common suffix of strings. |
@@ -259,7 +282,6 @@ funcxion.parameters((x, y) => x+y);
 [begin]: https://nodef.github.io/extra-string/modules.html#begin
 [middle]: https://nodef.github.io/extra-string/modules.html#middle
 [end]: https://nodef.github.io/extra-string/modules.html#end
-[symbolAt]: https://nodef.github.io/extra-string/modules.html#symbolAt
 [longestCommonInfix]: https://nodef.github.io/extra-string/modules.html#longestCommonInfix
 [longestCommonPrefix]: https://nodef.github.io/extra-string/modules.html#longestCommonPrefix
 [longestCommonSuffix]: https://nodef.github.io/extra-string/modules.html#longestCommonSuffix

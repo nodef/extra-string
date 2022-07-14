@@ -1,6 +1,6 @@
 {
   "name": "extra-string",
-  "version": "2.0.31",
+  "version": "2.0.32",
   "description": "A collection of common string functions.",
   "main": "index.js",
   "module": "index.mjs",

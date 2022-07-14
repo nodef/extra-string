@@ -928,7 +928,7 @@ function maxLength(xs: Iterable<string>): number {
  * @param i start index [0]
  * @param L max symbol length [0 ⇒ unspecified]
  */
-export function symbolAt(x: string, set: Set<string>, i: number = 0, L: number = 0) {
+function symbolAt(x: string, set: Set<string>, i: number = 0, L: number = 0) {
   if (L===0) L = maxLength(set);
   for (var l=L; l>0; l--) {
     var sym = x.substring(i, i+l);
