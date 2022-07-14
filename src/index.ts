@@ -1,4 +1,4 @@
-import {mod}      from "extra-math";
+// import {mod}      from "extra-math";
 import {IDENTITY} from "extra-function";
 
 
@@ -376,8 +376,8 @@ export function padStart(x: string, length: number, padding: string): string {
 
 
 
-// CASE
-// ----
+// TRANSFORM (CASE)
+// ----------------
 
 /**
  * Convert string to upper case.

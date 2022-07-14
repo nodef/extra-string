@@ -73,9 +73,9 @@ function generateWiki() {
 
 // Get README index descriptions.
 function readmeDescription(d) {
-  var rkind = /namespace|function/i;
+  var rkind = /namespace|function|variable/i;
   var sname = /a?sync$/i;
-  if (!rkind.test(d.kind)) return '';
+  if (!rkind.test(d.kind)) { console.log(d.kind); return ''; }
   if (sname.test(d.name) && d.name!=='spawnAsync') return '';
   var a = d.description.replace(/The.+method/, 'This method');
   a = a.replace(', with command-line arguments in ', ' and ');

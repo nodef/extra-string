@@ -1,101 +1,297 @@
-A [string] is a sequence of characters.<br>
+A collection of common string functions.<br>
 📦 [Node.js](https://www.npmjs.com/package/extra-string),
 🌐 [Web](https://www.npmjs.com/package/extra-string.web),
 📜 [Files](https://unpkg.com/extra-string/),
 📰 [Docs](https://nodef.github.io/extra-string/).
 
+A [string] is a sequence of characters. In JavaScript, strings are not
+[mutable]. Any transfomation of a *string*, such as `slice` or `concat`
+generates a *new string*. The *JavaScript runtime* however may optimize this
+behavior by *mutating strings behind the scenes*, when it can be guarenteed that
+the previous string is *not accessible* to the programmer. The *runtime* may
+also *avoid copying slices* of a string, or even *concatenation of slices of*
+*strings*, by implementing it as a *series of lookups into existing strings*.
+Food for thought.
+
 This package is available in both *Node.js* and *Web* formats. The web format
 is exposed as `extra_string` standalone variable and can be loaded from
 [jsDelivr CDN].
 
-> Stability: [Experimental](https://www.youtube.com/watch?v=L1j93RnIxEo).
-
+[string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+[mutable]: https://developer.mozilla.org/en-US/docs/Glossary/Mutable
 [jsDelivr CDN]: https://cdn.jsdelivr.net/npm/extra-string.web/index.js
+
+> Stability: [Experimental](https://www.youtube.com/watch?v=L1j93RnIxEo).
 
 <br>
 
+
 ```javascript
 const string = require('extra-string');
+// import * as string from "extra-string";
+// import * as string from "https://unpkg.com/extra-string/index.mjs"; (deno)
+
+var a = funcxion.composeRight(x => x*x, x => x+2);
+a(10);
+// → 102
+
+var a = funcxion.curry((x, y) => x+y);
+a(2)(3);
+// → 7
+
+var a = funcxion.unspread(Math.max);
+a([2, 3, 1]);
+// → 1.25
+
+funcxion.parameters((x, y) => x+y);
+// → [ 'x', 'y' ]
 ```
 
-Contants:
-- [WHITESPACE](https://www.npmjs.com/package/@extra-string/whitespace)
-- [PUNCTUATION](https://www.npmjs.com/package/@extra-string/punctuation)
-- [HEX_DIGITS](https://www.npmjs.com/package/@extra-string/hex-digits)
-- [OCT_DIGITS](https://www.npmjs.com/package/@extra-string/oct-digits)
-- [DIGITS](https://www.npmjs.com/package/@extra-string/digits)
-- [UPPERCASE](https://www.npmjs.com/package/@extra-string/uppercase)
-- [LOWERCASE](https://www.npmjs.com/package/@extra-string/lowercase)
-- [LETTERS](https://www.npmjs.com/package/@extra-string/letters)
-- [PRINTABLE](https://www.npmjs.com/package/@extra-string/printable)
-
-Datatype methods:
-- [is](https://www.npmjs.com/package/@extra-string/is)
-
-About methods:
-- [asc](https://www.npmjs.com/package/@extra-string/asc)
-- [chr](https://www.npmjs.com/package/@extra-string/chr)
-- [keys](https://www.npmjs.com/package/@extra-string/keys)
-- [values](https://www.npmjs.com/package/@extra-string/values)
-- [entries](https://www.npmjs.com/package/@extra-string/entries)
-- [left](https://www.npmjs.com/package/@extra-string/left)
-- [mid](https://www.npmjs.com/package/@extra-string/mid)
-- [right](https://www.npmjs.com/package/@extra-string/right)
-- [ngrams](https://www.npmjs.com/package/@extra-string/ngrams)
-- [symbolAt](https://www.npmjs.com/package/@extra-string/symbol-at)
-
-Search methods:
-- [commonInfix](https://www.npmjs.com/package/@extra-string/common-infix)
-- [commonPrefix](https://www.npmjs.com/package/@extra-string/common-prefix)
-- [commonSuffix](https://www.npmjs.com/package/@extra-string/common-suffix)
-- [uncommonInfix](https://www.npmjs.com/package/@extra-string/uncommon-infix)
-
-Generate methods:
-- [of](https://www.npmjs.com/package/@extra-string/of)
-- [from](https://www.npmjs.com/package/@extra-string/from)
-- [space](https://www.npmjs.com/package/@extra-string/space)
-
-Transform methods:
-- [toBaseline](https://www.npmjs.com/package/@extra-string/to-baseline)
-- [toCamelCase](https://www.npmjs.com/package/@extra-string/to-camel-case)
-- [toSnakeCase](https://www.npmjs.com/package/@extra-string/to-snake-case)
-- [toSubscript](https://www.npmjs.com/package/@extra-string/to-subscript)
-- [toSuperscript](https://www.npmjs.com/package/@extra-string/to-superscript)
-- [toTitleCase](https://www.npmjs.com/package/@extra-string/to-title-case)
-- [replacePrefix](https://www.npmjs.com/package/@extra-string/replace-prefix)
-- [replaceSuffix](https://www.npmjs.com/package/@extra-string/replace-suffix)
-- [mapReplace](https://www.npmjs.com/package/@extra-string/map-replace)
-- [mapReplacePrefix](https://www.npmjs.com/package/@extra-string/map-replace-prefix)
-- [mapReplaceSuffix](https://www.npmjs.com/package/@extra-string/map-replace-suffix)
-- [objectReplace](https://www.npmjs.com/package/@extra-string/object-replace)
-- [objectReplacePrefix](https://www.npmjs.com/package/@extra-string/object-replace-prefix)
-- [objectReplaceSuffix](https://www.npmjs.com/package/@extra-string/object-replace-suffix)
-
-Functional methods:
-- [every](https://www.npmjs.com/package/@extra-string/every)
-- [filter](https://www.npmjs.com/package/@extra-string/filter)
-- [find](https://www.npmjs.com/package/@extra-string/find)
-- [findIndex](https://www.npmjs.com/package/@extra-string/find-index)
-- [reduceRight](https://www.npmjs.com/package/@extra-string/reduce-right)
-
-Evaluate methods:
-- [localeCompare](https://www.npmjs.com/package/@extra-string/locale-compare)
-- [matchingNgrams](https://www.npmjs.com/package/@extra-string/matching-ngrams)
-- [matchingNgramCount](https://www.npmjs.com/package/@extra-string/matching-ngram-count)
-- [euclideanDistance](https://www.npmjs.com/package/@extra-string/euclidean-distance)
-- [hammingDistance](https://www.npmjs.com/package/@extra-string/hamming-distance)
-- [jaccardDistance](https://www.npmjs.com/package/@extra-string/jaccard-distance)
-- [jaccardIndex](https://www.npmjs.com/package/@extra-string/jaccard-index)
-- [jaroDistance](https://www.npmjs.com/package/@extra-string/jaro-distance)
-- [jaroWinklerDistance](https://www.npmjs.com/package/@extra-string/jaro-winkler-distance)
-- [levenshteinDistance](https://www.npmjs.com/package/@extra-string/levenshtein-distance)
-- [damerauLevenshteinDistance](https://www.npmjs.com/package/@extra-string/damerau-levenshtein-distance)
-- [sorensenDiceDistance](https://www.npmjs.com/package/@extra-string/sorensen-dice-distance)
-- [sorensenDiceIndex](https://www.npmjs.com/package/@extra-string/sorensen-dice-index)
-- [tverskyDistance](https://www.npmjs.com/package/@extra-string/tversky-distance)
-- [tverskyIndex](https://www.npmjs.com/package/@extra-string/tversky-index)
+<br>
+<br>
 
 
-[![](https://i.imgur.com/UQxfzCk.jpg)](https://nodef.github.io)
+## Index
 
-[string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+| Property | Description |
+|  ----  |  ----  |
+| [DIGITS] | Decimal digits 0-9. |
+| [OCT_DIGITS] | Octal digits 0-7. |
+| [HEX_DIGITS] | Hexadecimal digits 0-9, A-F, a-f. |
+| [UPPERCASE] | English letters A-Z. |
+| [LOWERCASE] | English letters a-z. |
+| [LETTERS] | Combination of uppercase, lowercase english letters. |
+| [PUNCTUATION] | Punctuation symbols (ASCII). |
+| [WHITESPACE] | The string "\t\n\x0b\x0c\r ". |
+| [PRINTABLE] | Combination of digits, letters, punctuation, and whitespace (ASCII). |
+| [MIN_CODE_POINT] | Minimum unicode code point. |
+| [MAX_CODE_POINT] | Maximum unicode code point. |
+|  |  |
+| [fromCharCode] | Get characters whose UTF-16 code units are given. |
+| [fromCodePoint] | Get characters whose unicode code points are given. |
+| [concat] | Combine multiple strings into one. |
+| [repeat] | Repeat string given number of times. |
+|  |  |
+| [valueOf] | Get primitive value of string object. |
+| [length] | Get length of string. |
+| [charAt] | Get character at given index in string. |
+| [charCodeAt] | Get UTF-16 code unit of a character in string. |
+| [codePointAt] | Get unicode code point of a character in string. |
+|  |  |
+| [localeCompare] | Compare two strings in the current or given locale. |
+|  |  |
+| [includes] | Check if string has a given infix. |
+| [startsWith] | Check if string has a given prefix. |
+| [endsWith] | Check if string has a given suffix. |
+| [indexOf] | Get first index of a given infix in string. |
+| [lastIndexOf] | Get last index of a given infix in string. |
+| [search] | Get first index of regular expression match in string. |
+| [match] | Get results of matching string with regular expression. |
+| [matchAll] | Get detailed results of matching string with regular expression. |
+|  |  |
+| [toString] | Get string representation of string. |
+|  |  |
+| [slice] | Extract section of string. |
+| [substring] | Extract section of string. |
+| [split] | Split string by a given separator into substrings. |
+|  |  |
+| [trimStart] | Remove whitespace from begining of string. |
+| [trimEnd] | Remove whitespace from end of string. |
+| [trim] | Remove whitespace from begining and end of string. |
+| [padStart] | Pad start of string to fit a desired length. |
+| [padEnd] | Pad end of string to fit a desired length. |
+|  |  |
+| [toUpperCase] | Convert string to upper case. |
+| [toLocaleUpperCase] | Convert string to upper case, as per locale-specific case mappings. |
+| [toLowerCase] | Convert string to lower case. |
+| [toLocaleLowerCase] | Convert string to lower case, as per locale-specific case mappings. |
+|  |  |
+| [replace] | Replace first match of given pattern by replacement. |
+| [normalize] | Normalize string by given form, as per Unicode Standard Annex #15. |
+|  |  |
+| [of] | Create string from arguments, like `Array.of()`. |
+| [from] | Create string from iterable, like `Array.from()`. |
+|  |  |
+| [splice] | Remove/replace characters in a string. |
+| [reverse] | Reverse a string. |
+| [sort] | Arrange characters in an order. |
+|  |  |
+| [filter] | Filter characters which pass a test. |
+|  |  |
+| [spaces] | Get a string of spaces. |
+|  |  |
+| [is] | Check if value is a string. |
+| [isEmpty] | Check if string is empty. |
+| [isCharacter] | Check if string is a character. |
+| [index] | Get non-negative index within string. |
+| [indexRange] | Get non-negative index range within string. |
+| [codePointRange] | Get unicode code point range of string. |
+|  |  |
+| [compare] | Compare two strings. |
+| [isEqual] | Check if two strings are equal. |
+|  |  |
+| [get] | Get character at a given index in string. |
+| [getAll] | Get characters at indices. |
+| [set] | Write a substring at specified index in string. |
+| [begin] | Get leftmost part of string. |
+| [middle] | Get a portion of string from middle. |
+| [end] | Get rightmost part of string. |
+|  |  |
+| [symbolAt] | Get set-listed symbol at specified index in string. |
+| [longestCommonInfix] | Get the longest common infix between strings. |
+| [longestCommonPrefix] | Get the longest common prefix of strings. |
+| [longestCommonSuffix] | Get the longest common suffix of strings. |
+| [longestUncommonInfixes] | Get the longest uncommon infixes of strings. |
+|  |  |
+| [toBaseline] | Convert a string to baseline characters (limited support). |
+| [toSuperscript] | Convert a string to superscript characters (limited support). |
+| [toSubscript] | Convert a string to superscript characters (limited support). |
+|  |  |
+| [toKebabCase] | Convert a string to kebab-case. |
+| [toSnakeCase] | Convert a string to snake-case. |
+| [toCamelCase] | Convert a string to camel-case. |
+| [toPascalCase] | Convert a string to pascal-case. |
+|  |  |
+| [ngrams] | Get n-grams of a string. |
+| [uniqueNgrams] | Find unique n-grams of a string. |
+| [countNgrams] | Count the total number of n-grams of a string. |
+| [countUniqueNgrams] | Count the total number of unique n-grams of a string. |
+| [countEachNgram] | Count each n-gram of a string. |
+| [matchingNgrams] | Get matching n-grams between strings. |
+| [uniqueMatchingNgrams] | Get unique matching n-grams between strings. |
+| [countMatchingNgrams] | Count the total number of matching n-grams between strings. |
+| [countEachMatchingNgram] | Count each matching n-gram between strings. |
+| [countUniqueMatchingNgrams] | Count the total number of unique matching n-grams between strings. |
+|  |  |
+| [euclideanDistance] | Get euclidean distance between strings. |
+| [hammingDistance] | Get hamming distance between strings. |
+| [jaccardIndex] | Get jaccard index between strings. |
+| [jaccardDistance] | Get jaccard distance between strings. |
+| [sorensenDiceIndex] | Get Sørensen-Dice index between strings. |
+| [sorensenDiceDistance] | Get Sørensen-Dice distance between strings. |
+| [tverskyIndex] | Get Tversky index between strings. |
+| [tverskyDistance] | Get Tversky distance between strings. |
+| [jaroSimilarity] | Get Jaro similarity between strings. |
+| [jaroDistance] | Get Jaro distance between strings. |
+| [jaroWinklerSimilarity] | Get Jaro-Winkler similarity between strings. |
+| [jaroWinklerDistance] | Get Jaro-Winkler distance between strings. |
+| [levenshteinDistance] | Get Levenshtein distance between strings. |
+| [damerauLevenshteinDistance] | Get Damerau–Levenshtein distance between strings. |
+
+
+<br>
+<br>
+
+
+## References
+
+- [MDN Web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
+
+<br>
+<br>
+
+
+[![](https://img.youtube.com/vi/vzfy4EKwG_Y/maxresdefault.jpg)](https://www.youtube.com/watch?v=vzfy4EKwG_Y)<br>
+
+
+[DIGITS]: https://nodef.github.io/extra-string/modules.html#DIGITS
+[OCT_DIGITS]: https://nodef.github.io/extra-string/modules.html#OCT_DIGITS
+[HEX_DIGITS]: https://nodef.github.io/extra-string/modules.html#HEX_DIGITS
+[UPPERCASE]: https://nodef.github.io/extra-string/modules.html#UPPERCASE
+[LOWERCASE]: https://nodef.github.io/extra-string/modules.html#LOWERCASE
+[LETTERS]: https://nodef.github.io/extra-string/modules.html#LETTERS
+[PUNCTUATION]: https://nodef.github.io/extra-string/modules.html#PUNCTUATION
+[WHITESPACE]: https://nodef.github.io/extra-string/modules.html#WHITESPACE
+[PRINTABLE]: https://nodef.github.io/extra-string/modules.html#PRINTABLE
+[MIN_CODE_POINT]: https://nodef.github.io/extra-string/modules.html#MIN_CODE_POINT
+[MAX_CODE_POINT]: https://nodef.github.io/extra-string/modules.html#MAX_CODE_POINT
+[fromCharCode]: https://nodef.github.io/extra-string/modules.html#fromCharCode
+[fromCodePoint]: https://nodef.github.io/extra-string/modules.html#fromCodePoint
+[concat]: https://nodef.github.io/extra-string/modules.html#concat
+[repeat]: https://nodef.github.io/extra-string/modules.html#repeat
+[valueOf]: https://nodef.github.io/extra-string/modules.html#valueOf
+[length]: https://nodef.github.io/extra-string/modules.html#length
+[charAt]: https://nodef.github.io/extra-string/modules.html#charAt
+[charCodeAt]: https://nodef.github.io/extra-string/modules.html#charCodeAt
+[codePointAt]: https://nodef.github.io/extra-string/modules.html#codePointAt
+[localeCompare]: https://nodef.github.io/extra-string/modules.html#localeCompare
+[includes]: https://nodef.github.io/extra-string/modules.html#includes
+[startsWith]: https://nodef.github.io/extra-string/modules.html#startsWith
+[endsWith]: https://nodef.github.io/extra-string/modules.html#endsWith
+[indexOf]: https://nodef.github.io/extra-string/modules.html#indexOf
+[lastIndexOf]: https://nodef.github.io/extra-string/modules.html#lastIndexOf
+[search]: https://nodef.github.io/extra-string/modules.html#search
+[match]: https://nodef.github.io/extra-string/modules.html#match
+[matchAll]: https://nodef.github.io/extra-string/modules.html#matchAll
+[toString]: https://nodef.github.io/extra-string/modules.html#toString
+[slice]: https://nodef.github.io/extra-string/modules.html#slice
+[substring]: https://nodef.github.io/extra-string/modules.html#substring
+[split]: https://nodef.github.io/extra-string/modules.html#split
+[trimStart]: https://nodef.github.io/extra-string/modules.html#trimStart
+[trimEnd]: https://nodef.github.io/extra-string/modules.html#trimEnd
+[trim]: https://nodef.github.io/extra-string/modules.html#trim
+[padStart]: https://nodef.github.io/extra-string/modules.html#padStart
+[padEnd]: https://nodef.github.io/extra-string/modules.html#padEnd
+[toUpperCase]: https://nodef.github.io/extra-string/modules.html#toUpperCase
+[toLocaleUpperCase]: https://nodef.github.io/extra-string/modules.html#toLocaleUpperCase
+[toLowerCase]: https://nodef.github.io/extra-string/modules.html#toLowerCase
+[toLocaleLowerCase]: https://nodef.github.io/extra-string/modules.html#toLocaleLowerCase
+[replace]: https://nodef.github.io/extra-string/modules.html#replace
+[normalize]: https://nodef.github.io/extra-string/modules.html#normalize
+[of]: https://nodef.github.io/extra-string/modules.html#of
+[from]: https://nodef.github.io/extra-string/modules.html#from
+[splice]: https://nodef.github.io/extra-string/modules.html#splice
+[reverse]: https://nodef.github.io/extra-string/modules.html#reverse
+[sort]: https://nodef.github.io/extra-string/modules.html#sort
+[filter]: https://nodef.github.io/extra-string/modules.html#filter
+[spaces]: https://nodef.github.io/extra-string/modules.html#spaces
+[is]: https://nodef.github.io/extra-string/modules.html#is
+[isEmpty]: https://nodef.github.io/extra-string/modules.html#isEmpty
+[isCharacter]: https://nodef.github.io/extra-string/modules.html#isCharacter
+[index]: https://nodef.github.io/extra-string/modules.html#index
+[indexRange]: https://nodef.github.io/extra-string/modules.html#indexRange
+[codePointRange]: https://nodef.github.io/extra-string/modules.html#codePointRange
+[compare]: https://nodef.github.io/extra-string/modules.html#compare
+[isEqual]: https://nodef.github.io/extra-string/modules.html#isEqual
+[get]: https://nodef.github.io/extra-string/modules.html#get
+[getAll]: https://nodef.github.io/extra-string/modules.html#getAll
+[set]: https://nodef.github.io/extra-string/modules.html#set
+[begin]: https://nodef.github.io/extra-string/modules.html#begin
+[middle]: https://nodef.github.io/extra-string/modules.html#middle
+[end]: https://nodef.github.io/extra-string/modules.html#end
+[symbolAt]: https://nodef.github.io/extra-string/modules.html#symbolAt
+[longestCommonInfix]: https://nodef.github.io/extra-string/modules.html#longestCommonInfix
+[longestCommonPrefix]: https://nodef.github.io/extra-string/modules.html#longestCommonPrefix
+[longestCommonSuffix]: https://nodef.github.io/extra-string/modules.html#longestCommonSuffix
+[longestUncommonInfixes]: https://nodef.github.io/extra-string/modules.html#longestUncommonInfixes
+[toBaseline]: https://nodef.github.io/extra-string/modules.html#toBaseline
+[toSuperscript]: https://nodef.github.io/extra-string/modules.html#toSuperscript
+[toSubscript]: https://nodef.github.io/extra-string/modules.html#toSubscript
+[toKebabCase]: https://nodef.github.io/extra-string/modules.html#toKebabCase
+[toSnakeCase]: https://nodef.github.io/extra-string/modules.html#toSnakeCase
+[toCamelCase]: https://nodef.github.io/extra-string/modules.html#toCamelCase
+[toPascalCase]: https://nodef.github.io/extra-string/modules.html#toPascalCase
+[ngrams]: https://nodef.github.io/extra-string/modules.html#ngrams
+[uniqueNgrams]: https://nodef.github.io/extra-string/modules.html#uniqueNgrams
+[countNgrams]: https://nodef.github.io/extra-string/modules.html#countNgrams
+[countUniqueNgrams]: https://nodef.github.io/extra-string/modules.html#countUniqueNgrams
+[countEachNgram]: https://nodef.github.io/extra-string/modules.html#countEachNgram
+[matchingNgrams]: https://nodef.github.io/extra-string/modules.html#matchingNgrams
+[uniqueMatchingNgrams]: https://nodef.github.io/extra-string/modules.html#uniqueMatchingNgrams
+[countMatchingNgrams]: https://nodef.github.io/extra-string/modules.html#countMatchingNgrams
+[countEachMatchingNgram]: https://nodef.github.io/extra-string/modules.html#countEachMatchingNgram
+[countUniqueMatchingNgrams]: https://nodef.github.io/extra-string/modules.html#countUniqueMatchingNgrams
+[euclideanDistance]: https://nodef.github.io/extra-string/modules.html#euclideanDistance
+[hammingDistance]: https://nodef.github.io/extra-string/modules.html#hammingDistance
+[jaccardIndex]: https://nodef.github.io/extra-string/modules.html#jaccardIndex
+[jaccardDistance]: https://nodef.github.io/extra-string/modules.html#jaccardDistance
+[sorensenDiceIndex]: https://nodef.github.io/extra-string/modules.html#sorensenDiceIndex
+[sorensenDiceDistance]: https://nodef.github.io/extra-string/modules.html#sorensenDiceDistance
+[tverskyIndex]: https://nodef.github.io/extra-string/modules.html#tverskyIndex
+[tverskyDistance]: https://nodef.github.io/extra-string/modules.html#tverskyDistance
+[jaroSimilarity]: https://nodef.github.io/extra-string/modules.html#jaroSimilarity
+[jaroDistance]: https://nodef.github.io/extra-string/modules.html#jaroDistance
+[jaroWinklerSimilarity]: https://nodef.github.io/extra-string/modules.html#jaroWinklerSimilarity
+[jaroWinklerDistance]: https://nodef.github.io/extra-string/modules.html#jaroWinklerDistance
+[levenshteinDistance]: https://nodef.github.io/extra-string/modules.html#levenshteinDistance
+[damerauLevenshteinDistance]: https://nodef.github.io/extra-string/modules.html#damerauLevenshteinDistance
