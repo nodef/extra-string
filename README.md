@@ -55,20 +55,20 @@ const string = require('extra-string');
 // import * as string from "extra-string";
 // import * as string from "https://unpkg.com/extra-string/index.mjs"; (deno)
 
-var a = funcxion.composeRight(x => x*x, x => x+2);
-a(10);
-// → 102
+string.longestCommonInfix('dismiss', 'mississipi');
+// → 'miss'
 
-var a = funcxion.curry((x, y) => x+y);
-a(2)(3);
-// → 7
+string.longestUncommonInfixes('chocolatier', 'engineer');
+// → ['chocolati', 'engine']
 
-var a = funcxion.unspread(Math.max);
-a([2, 3, 1]);
-// → 1.25
+string.toKebabCase('Malwa Plateau');
+// → 'malwa-plateau'
 
-funcxion.parameters((x, y) => x+y);
-// → [ 'x', 'y' ]
+'6.626 x 10' + string.toSuperscript('-34');
+// → '6.626 x 10⁻³⁴' (Planck's constant)
+
+string.tverskyDistance('pikachu', 'raichu', 3, 0.2, 0.4);
+// → 0.6666666666666667
 ```
 
 <br>
@@ -209,12 +209,16 @@ funcxion.parameters((x, y) => x+y);
 ## References
 
 - [MDN Web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
+- [Lodash documentation](https://lodash.com/docs/4.17.15)
+- [natural package by Chris Umbel and contributors](https://www.npmjs.com/package/natural)
+- [esrever package by Mathias Bynens and contributors](https://www.npmjs.com/package/esrever)
+- [How do you reverse a string in-place in JavaScript?](https://stackoverflow.com/a/959004/1413259)
 
 <br>
 <br>
 
 
-[![](https://img.youtube.com/vi/vzfy4EKwG_Y/maxresdefault.jpg)](https://www.youtube.com/watch?v=vzfy4EKwG_Y)<br>
+[![](https://img.youtube.com/vi/zi0w7J7MCrk/maxresdefault.jpg)](https://www.youtube.com/watch?v=zi0w7J7MCrk)<br>
 
 
 [DIGITS]: https://nodef.github.io/extra-string/modules.html#DIGITS

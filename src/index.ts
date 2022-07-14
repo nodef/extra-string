@@ -1123,7 +1123,7 @@ function toBorderUpperCase(x: string): string {
  * @returns Title Case
  */
 function toTitleCase(x: string, re: RegExp=null): string {
-  var words = x.split(re || /\W+/g);
+  var words = x.split(re || /\W+/g).filter(IDENTITY);
   return words.map(toBeginUpperCase).join(" ");
 }
 
@@ -1136,12 +1136,12 @@ function toTitleCase(x: string, re: RegExp=null): string {
  * @returns kebab-case | kebab<join>case
  */
 export function toKebabCase(x: string, re: RegExp=null, sep: string="-"): string {
-  var words = x.split(re || /\W+/g);
+  var words = x.split(re || /\W+/g).filter(IDENTITY);
   for (var w of words) {
     w = w.replace(/[A-Z]+/g, m => m.length===1? sep+m : sep+m.slice(0, -1)+sep+m.slice(-1));
     if (w.startsWith(sep)) w = w.slice(sep.length);
   }
-  return words.join(sep);
+  return words.join(sep).toLowerCase();
 }
 
 
@@ -1164,7 +1164,7 @@ export function toSnakeCase(x: string, re: RegExp=null): string {
  * @returns camelCase | CamelCase
  */
 export function toCamelCase(x: string, re: RegExp=null, upper: boolean=false): string {
-  var a = "", words = x.split(re || /\W+/g);
+  var a = "", words = x.split(re || /\W+/g).filter(IDENTITY);
   for (var w of words)
     a += toBeginUpperAnyCase(w.replace(/[A-Z]+/g, toBorderUpperCase));
   return upper? a : toBeginLowerAnyCase(a);
