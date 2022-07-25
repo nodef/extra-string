@@ -1119,11 +1119,11 @@ function toBorderUpperCase(x: string): string {
 /**
  * Convert a string to title-case.
  * @param x a string
- * @param re word seperator pattern [/\W+/g]
+ * @param re word seperator pattern [/[^0-9A-Za-z]+/g]
  * @returns Title Case
  */
 function toTitleCase(x: string, re: RegExp=null): string {
-  var words = x.split(re || /\W+/g).filter(IDENTITY);
+  var words = x.split(re || /[^0-9A-Za-z]+/g).filter(IDENTITY);
   return words.map(toBeginUpperCase).join(" ");
 }
 
@@ -1131,12 +1131,12 @@ function toTitleCase(x: string, re: RegExp=null): string {
 /**
  * Convert a string to kebab-case.
  * @param x a string
- * @param re word seperator pattern [/\W+/g]
+ * @param re word seperator pattern [/[^0-9A-Za-z]+/g]
  * @param sep separator to join with [-]
  * @returns kebab-case | kebab<join>case
  */
 export function toKebabCase(x: string, re: RegExp=null, sep: string="-"): string {
-  var words = x.split(re || /\W+/g).filter(IDENTITY);
+  var words = x.split(re || /[^0-9A-Za-z]+/g).filter(IDENTITY);
   for (var i=0, I=words.length; i<I; ++i) {
     words[i] = words[i].replace(/[A-Z]+/g, m => m.length===1? sep+m : sep+m.slice(0, -1)+sep+m.slice(-1));
     if (words[i].startsWith(sep)) words[i] = words[i].slice(sep.length);
@@ -1148,7 +1148,7 @@ export function toKebabCase(x: string, re: RegExp=null, sep: string="-"): string
 /**
  * Convert a string to snake-case.
  * @param x a string
- * @param re word seperator pattern [/\W+/g]
+ * @param re word seperator pattern [/[^0-9A-Za-z]+/g]
  * @returns snake_case
  */
 export function toSnakeCase(x: string, re: RegExp=null): string {
@@ -1159,12 +1159,12 @@ export function toSnakeCase(x: string, re: RegExp=null): string {
 /**
  * Convert a string to camel-case.
  * @param x a string
- * @param re word seperator pattern [/\W+/g]
+ * @param re word seperator pattern [/[^0-9A-Za-z]+/g]
  * @param upper upper camel case?
  * @returns camelCase | CamelCase
  */
 export function toCamelCase(x: string, re: RegExp=null, upper: boolean=false): string {
-  var a = "", words = x.split(re || /\W+/g).filter(IDENTITY);
+  var a = "", words = x.split(re || /[^0-9A-Za-z]+/g).filter(IDENTITY);
   for (var w of words)
     a += toBeginUpperAnyCase(w.replace(/[A-Z]+/g, toBorderUpperCase));
   return upper? a : toBeginLowerAnyCase(a);
@@ -1174,7 +1174,7 @@ export function toCamelCase(x: string, re: RegExp=null, upper: boolean=false): s
 /**
  * Convert a string to pascal-case.
  * @param x a string
- * @param re word seperator pattern [/\W+/g]
+ * @param re word seperator pattern [/[^0-9A-Za-z]+/g]
  * @returns PascalCase
  */
 export function toPascalCase(x: string, re: RegExp=null): string {

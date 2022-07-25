@@ -18,5 +18,6 @@ coverage/
 .coveralls.yml
 tsconfig.json
 jestconfig.json
+jest.config.js
 rollup.config.js
 build.js
