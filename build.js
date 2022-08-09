@@ -1,3 +1,4 @@
+const fs    = require('fs');
 const build = require('extra-build');
 
 const owner  = 'nodef';
@@ -28,7 +29,7 @@ function publishRootPackage(ds, ver, typ) {
   m.keywords = keywords(ds);
   if (typ) {
     m.name = `${m.name}.${typ}`;
-    m.description = m.description.replace(/\.$/, `{${typ}}.`);
+    m.description = m.description.replace(/\.$/, ` {${typ}}.`);
     md = md.replace(/(unpkg\.com\/)(\S+?)(\/\))/, `$1$2.${typ}$3`);
   }
   build.writeMetadata('.', m);
@@ -88,9 +89,24 @@ function publishPackages(ds) {
 
 
 // Generate wiki for all exported symbols.
-function generateWiki() {
-  // createWikiFiles();
-  // generateWikiFiles();
+function generateWiki(ds) {
+  var rkind = /namespace|function/i, useWiki = true;
+  var dm = new Map(ds.map(d => [d.name, d]));
+  for (var d of ds) {
+    var f = `wiki/${d.name}.md`;
+    if (!rkind.test(d.kind)) continue;
+    if (!fs.existsSync(f))  {
+      var txt = build.wikiMarkdown(d, {owner, repo, useWiki});
+      build.writeFileText(f, txt);
+    }
+    else {
+      var txt = build.readFileText(f);
+      txt = build.wikiUpdateDescription(txt, d);
+      txt = build.wikiUpdateCodeReference(txt, d, {owner, repo, useWiki})
+      txt = build.wikiUpdateLinkReferences(txt, dm, {owner, repo, useWiki});
+      build.writeFileText(f, txt);
+    }
+  }
 }
 
 
