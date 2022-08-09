@@ -1,4 +1,3 @@
-// import {mod}      from "extra-math";
 import {IDENTITY} from "extra-function";
 
 
@@ -64,12 +63,12 @@ export function fromCodePoint(...codes: number[]): string {
 
 
 /**
- * Combine multiple strings into one.
- * @param xs strings
+ * Combine multiple values into a string.
+ * @param values values
  * @returns combined string
  */
-export function concat(...xs: string[]): string {
-  return "".concat(...xs);
+export function concat(...values: any[]): string {
+  return "".concat(...values);
 }
 
 
@@ -108,6 +107,8 @@ export function length(x: string): number {
   return x.length;
 }
 export {length as size};
+// TODO: countCharacters ([...str].length)
+// - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length
 
 
 /**
@@ -119,6 +120,8 @@ export {length as size};
 export function charAt(x: string, at: number): string {
   return x.charAt(at);
 }
+// TODO: Getting whole characters (non-BMP, surrogate pairs)
+// - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charAt
 
 
 /**
@@ -130,6 +133,8 @@ export function charAt(x: string, at: number): string {
 export function charCodeAt(x: string, at: number): number {
   return x.charCodeAt(at);
 }
+// TODO: Getting whole characters (non-BMP, surrogate pairs)
+// - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt
 
 
 /**
@@ -156,7 +161,7 @@ export function codePointAt(x: string, at: number): number {
  * @param options comparison options
  * @returns x<y: -ve, x=y: 0, x>y: +ve
  */
-export function localeCompare(x: string, y: string, locales?: string | string[], options?: Intl.LocaleOptions): number {
+export function localeCompare(x: string, y: string, locales?: string | string[], options?: Intl.CollatorOptions): number {
   return x.localeCompare(y, locales, options);
 }
 
@@ -310,7 +315,7 @@ export function substring(x: string, start: number, end?: number): string {
  * @param limit maximum number of substrings
  * @returns substrings
  */
-export function split(x: string, separator: string | RegExp, limit?: number): string[] {
+export function split(x: string, separator?: string | RegExp, limit?: number): string[] {
   return x.split(separator, limit);
 }
 
@@ -357,7 +362,7 @@ export function trim(x: string): string {
  * @param padding pad with [ ]
  * @returns padded string
  */
-export function padStart(x: string, length: number, padding: string): string {
+export function padStart(x: string, length: number, padding: string=" "): string {
   return x.padStart(length, padding);
 }
 
@@ -369,7 +374,7 @@ export function padStart(x: string, length: number, padding: string): string {
  * @param padding pad with [ ]
  * @returns padded string
  */
- export function padEnd(x: string, length: number, padding: string): string {
+ export function padEnd(x: string, length: number, padding: string=" "): string {
   return x.padEnd(length, padding);
 }
 
@@ -392,10 +397,11 @@ export function toUpperCase(x: string): string {
 /**
  * Convert string to upper case, as per locale-specific case mappings.
  * @param x a string
+ * @param locales BCP 47 language tag(s)
  * @returns upper cased string
  */
-export function toLocaleUpperCase(x: string): string {
-  return x.toLocaleUpperCase();
+export function toLocaleUpperCase(x: string, locales?: string | string[]): string {
+  return x.toLocaleUpperCase(locales);
 }
 
 
@@ -412,10 +418,11 @@ export function toLowerCase(x: string): string {
 /**
  * Convert string to lower case, as per locale-specific case mappings.
  * @param x a string
+ * @param locales BCP 47 language tag(s)
  * @returns lower cased string
  */
-export function toLocaleLowerCase(x: string): string {
-  return x.toLowerCase();
+export function toLocaleLowerCase(x: string, locales?: string | string[]): string {
+  return x.toLocaleLowerCase(locales);
 }
 
 
@@ -1135,7 +1142,7 @@ function toTitleCase(x: string, re: RegExp=null): string {
  * @param sep separator to join with [-]
  * @returns kebab-case | kebab<join>case
  */
-export function toKebabCase(x: string, re: RegExp=null, sep: string="-"): string {
+export function toKebabCase(x: string, re: RegExp | null=null, sep: string="-"): string {
   var words = x.split(re || /[^0-9A-Za-z]+/g).filter(IDENTITY);
   for (var i=0, I=words.length; i<I; ++i) {
     words[i] = words[i].replace(/[A-Z]+/g, m => m.length===1? sep+m : sep+m.slice(0, -1)+sep+m.slice(-1));

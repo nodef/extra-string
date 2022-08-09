@@ -220,6 +220,9 @@ string.tverskyDistance('pikachu', 'raichu', 3, 0.2, 0.4);
 
 [![](https://img.youtube.com/vi/zi0w7J7MCrk/maxresdefault.jpg)](https://www.youtube.com/watch?v=zi0w7J7MCrk)<br>
 [![DOI](https://zenodo.org/badge/149915096.svg)](https://zenodo.org/badge/latestdoi/149915096)
+[![Coverage Status](https://coveralls.io/repos/github/nodef/extra-string/badge.svg?branch=master)](https://coveralls.io/github/nodef/extra-string?branch=master)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/1d8fb20d076d49a0f671/test_coverage)](https://codeclimate.com/github/nodef/extra-string/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/1d8fb20d076d49a0f671/maintainability)](https://codeclimate.com/github/nodef/extra-string/maintainability)
 
 
 [DIGITS]: https://nodef.github.io/extra-string/modules.html#DIGITS

@@ -11,7 +11,7 @@ export default [{
     format: "es",
     exports: "auto"
   },
-  plugins: [dts()]
+  plugins: [dts({respectExternal: true})]
 }, {
   input: ".build/index.js",
   output: {
