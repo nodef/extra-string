@@ -33,6 +33,8 @@ import {toLocaleLowerCase}      from "../src";
 import {replace}                from "../src";
 import {normalize}              from "../src";
 import {}        from "../src";
+import {sort}                   from "../src";
+import {filter}                 from "../src";
 import {longestCommonInfix}     from "../src";
 import {longestCommonPrefix}    from "../src";
 import {longestCommonSuffix}    from "../src";
@@ -1144,6 +1146,27 @@ test("normalize.5", () => {
   expect(a).toBe("\u0073\u0323\u0307");
 });
 // - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize
+
+
+
+
+test("filter.1", () => {
+  var str = "ABCDEFGHIJ";
+  var a = filter(str, v => (v.charCodeAt(0) & 1)===0);
+  expect(a).toBe("BDFHJ");
+  var a = filter(str, v => (v.charCodeAt(0) & 1)===1);
+  expect(a).toBe("ACEGI");
+});
+
+
+test("filter.2", () => {
+  var a = filter("g00df00d", v => v<="f");
+  expect(a).toBe("00df00d");
+  var a = filter("badfood", v => v<="f");
+  expect(a).toBe("badfd");
+  var a = filter("", v => v<="f");
+  expect(a).toBe("");
+});
 
 
 
