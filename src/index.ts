@@ -1347,7 +1347,7 @@ export function ngrams(x: string, n: number): string[] {
  * Find unique n-grams of a string.
  * @param x a string
  * @param n n-gram length
- * @returns Set {gᵢ} | gᵢ = iᵗʰ n-gram
+ * @returns Set \{gᵢ\} | gᵢ = iᵗʰ n-gram
  */
 export function uniqueNgrams(x: string, n: number): Set<string> {
   var a: Set<string> = new Set();
@@ -1372,7 +1372,7 @@ export function countNgrams(x: string, n: number): number {
  * Count the total number of unique n-grams of a string.
  * @param x a string
  * @param n n-gram length
- * @returns |Set {gᵢ}| | gᵢ = iᵗʰ n-gram
+ * @returns |Set \{gᵢ\}| | gᵢ = iᵗʰ n-gram
  */
 export function countUniqueNgrams(x: string, n: number): number {
   return uniqueNgrams(x, n).size;
@@ -1383,7 +1383,7 @@ export function countUniqueNgrams(x: string, n: number): number {
  * Count each n-gram of a string.
  * @param x a string
  * @param n n-gram length
- * @returns Map {gᵢ: count(gᵢ)} | gᵢ = iᵗʰ n-gram
+ * @returns Map \{gᵢ: count(gᵢ)\} | gᵢ = iᵗʰ n-gram
  */
 export function countEachNgram(x: string, n: number): Map<string, number> {
   var a: Map<string, number> = new Map();
@@ -1418,7 +1418,7 @@ export function matchingNgrams(x: string, y: string, n: number): string[] {
  * @param x a string
  * @param y another string
  * @param n n-gram length
- * @returns Set {gᵢ} | gᵢ = iᵗʰ unique matching n-gram
+ * @returns Set \{gᵢ\} | gᵢ = iᵗʰ unique matching n-gram
  */
 export function uniqueMatchingNgrams(x: string, y: string, n: number): Set<string> {
   var a: Set<string> = new Set();
@@ -1454,7 +1454,7 @@ export function countMatchingNgrams(x: string, y: string, n: number): number {
  * @param x a string
  * @param y another string
  * @param n n-gram length
- * @returns Map {gᵢ: count(gᵢ)} | gᵢ = iᵗʰ matching n-gram
+ * @returns Map \{gᵢ: count(gᵢ)\} | gᵢ = iᵗʰ matching n-gram
  */
 export function countEachMatchingNgram(x: string, y: string, n: number): Map<string, number> {
   var a: Map<string, number> = new Map();
@@ -1473,7 +1473,7 @@ export function countEachMatchingNgram(x: string, y: string, n: number): Map<str
  * @param x a string
  * @param y another string
  * @param n n-gram length
- * @returns |Set {gᵢ}| | gᵢ = iᵗʰ unique matching n-gram
+ * @returns |Set \{gᵢ\}| | gᵢ = iᵗʰ unique matching n-gram
  */
  export function countUniqueMatchingNgrams(x: string, y: string, n: number): number {
   var gs = uniqueNgrams(x, n), a = 0;
