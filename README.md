@@ -212,6 +212,8 @@ string.tverskyDistance('pikachu', 'raichu', 3, 0.2, 0.4);
 - [Lodash documentation](https://lodash.com/docs/4.17.15)
 - [natural package by Chris Umbel and contributors](https://www.npmjs.com/package/natural)
 - [esrever package by Mathias Bynens and contributors](https://www.npmjs.com/package/esrever)
+- [js-string-compression package by Chen Caishun](https://github.com/cschen1205/js-string-compression)
+- [@stdlib/string-base-trim package by @stdlib-js](https://github.com/stdlib-js/string-base-trim)
 - [How do you reverse a string in-place in JavaScript?](https://stackoverflow.com/a/959004/1413259)
 
 <br>
