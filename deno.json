@@ -1,0 +1,7 @@
+{
+  "name": "@nodef/extra-string",
+  "version": "0.1.2",
+  "license": "MIT",
+  "exports": "./index.ts",
+  "exclude": [".github/"]
+}
