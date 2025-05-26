@@ -1349,6 +1349,45 @@ function toBorderUpperCase(x: string): string {
 
 
 /**
+ * Split a string into words, after de-casing it.
+ * @param x a string
+ * @param re word seperator pattern [/[^0-9A-Za-z]+/g]
+ * @returns words in the string
+ * @example
+ * ```javascript
+ * xstring.toWords('Malwa Plateau');
+ * // → ['Malwa', 'Plateau']
+ *
+ * xstring.toWords('::chota::nagpur::');
+ * // → ['chota', 'nagpur']
+ *
+ * xstring.toWords('deccan___plateau');
+ * // → ['deccan', 'plateau']
+ *
+ * xstring.toWords('westernGhats');
+ * // → ['western', 'Ghats']
+ *
+ * xstring.toWords('parseURLToJSON');
+ * // → ['parse', 'URL', 'To', 'JSON']
+ */
+export function toWords(x: string, re: RegExp | null=null): string[] {
+  const words  = [];
+  const tokens = x.split(re || /[^0-9A-Za-z]+/g).filter(IDENTITY);
+  for (const token of tokens) {
+    const re = /[A-Z]+/g;
+    let m = null, i = 0;
+    while ((m = re.exec(token)) != null) {
+      if (i!==m.index) words.push(token.slice(i, m.index));
+      if (m[0].length===1 || m.index + m[0].length === token.length) i = m.index;
+      else { words.push(token.slice(m.index, m.index + m[0].length - 1)); i = m.index + m[0].length - 1; }
+    }
+    if (i!==token.length) words.push(token.slice(i));
+  }
+  return words;
+}
+
+
+/**
  * Convert a string to title-case.
  * @param x a string
  * @param re word seperator pattern [/[^0-9A-Za-z]+/g]
@@ -1358,16 +1397,15 @@ function toBorderUpperCase(x: string): string {
  * xstring.toTitleCase('Geminid meteor shower');
  * // → 'Geminid Meteor Shower'
  *
- * xstring.toTitleCase('geminid-meteor-shower');
- * // → 'Geminid Meteor Shower'
+ * xstring.toTitleCase('deccan___plateau');
+ * // → 'Deccan Plateau'
  *
- * xstring.toTitleCase('geminid_meteor_shower', '_');
- * // → 'Geminid Meteor Shower'
+ * xstring.toTitleCase('parseURLToJSON', null, '_');
+ * // → 'Parse_URL_To_JSON'
  * ```
  */
-function _toTitleCase(x: string, re: RegExp | null=null): string {
-  const words = x.split(re || /[^0-9A-Za-z]+/g).filter(IDENTITY);
-  return words.map(toBeginUpperCase).join(" ");
+export function toTitleCase(x: string, re: RegExp | null=null, sep=" "): string {
+  return toWords(x, re).map(toBeginUpperCase).join(sep);
 }
 
 
@@ -1445,6 +1483,21 @@ export function toCamelCase(x: string, re: RegExp | null=null, upper: boolean=fa
 export function toPascalCase(x: string, re: RegExp | null=null): string {
   return toCamelCase(x, re, true);
 }
+
+
+/**
+ * Convert a string to slug-case (URL-friendly kebab-case).
+ * @param x a string
+ * @param re word separator pattern [/[^0-9A-Za-z]+/g]
+ * @param sep separator to join with [-]
+ * @returns slug-case | slug<join>case
+ */
+export function toSlugCase(x: string, re: RegExp | null = null, sep: string = "-"): string {
+  x = x.normalize("NFKD").replace(/[\u0300-\u036f]/g, ""); // Remove accents
+  // deno-lint-ignore no-control-regex
+  return toKebabCase(x.replace(/[^\x00-\x7F]/g, ""), re, sep); // Remove non-ASCII chars
+}
+export {toSlugCase as slugify};
 //#endregion
 
 

@@ -48,6 +48,8 @@ xstring.tverskyDistance('pikachu', 'raichu', 3, 0.2, 0.4);
 | [toSnakeCase] | Convert a string to snake-case. |
 | [toCamelCase] | Convert a string to camel-case. |
 | [toPascalCase] | Convert a string to pascal-case. |
+| [toSlugCase] | Convert a string to slug-case (URL-friendly kebab-case). |
+| [toWords] | Split a string into words, after de-casing it. |
 |  |  |
 | [toBaseline] | Convert a string to baseline characters (limited support). |
 | [toSuperscript] | Convert a string to superscript characters (limited support). |
@@ -274,6 +276,8 @@ As of 26 June 2025, this project is licensed under AGPL-3.0. Previous versions r
 [toSnakeCase]: https://jsr.io/@nodef/extra-string/doc/~/toSnakeCase
 [toCamelCase]: https://jsr.io/@nodef/extra-string/doc/~/toCamelCase
 [toPascalCase]: https://jsr.io/@nodef/extra-string/doc/~/toPascalCase
+[toSlugCase]: https://jsr.io/@nodef/extra-string/doc/~/toSlugCase
+[toWords]: https://jsr.io/@nodef/extra-string/doc/~/toWords
 [ngrams]: https://jsr.io/@nodef/extra-string/doc/~/ngrams
 [uniqueNgrams]: https://jsr.io/@nodef/extra-string/doc/~/uniqueNgrams
 [countNgrams]: https://jsr.io/@nodef/extra-string/doc/~/countNgrams

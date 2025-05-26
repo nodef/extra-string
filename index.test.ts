@@ -44,7 +44,10 @@ import {
   longestCommonPrefix,
   longestCommonSuffix,
   longestUncommonInfixes,
+  toWords,
+  toTitleCase,
   toKebabCase,
+  toSlugCase,
   toSuperscript,
   tverskyDistance,
 } from "./index.ts";
@@ -1225,17 +1228,67 @@ Deno.test("longestUncommonInfixes", () => {
 
 
 
+Deno.test("toWords", () => {
+  const a = toWords("Malwa Plateau");
+  assertEquals(a, ["Malwa", "Plateau"]);
+  const b = toWords("::chota::nagpur::");
+  assertEquals(b, ["chota", "nagpur"]);
+  const c = toWords("deccan___plateau");
+  assertEquals(c, ["deccan", "plateau"]);
+  const d = toWords("westernGhats");
+  assertEquals(d, ["western", "Ghats"]);
+  const e = toWords("parseURLToJSON");
+  assertEquals(e, ["parse", "URL", "To", "JSON"]);
+});
+
+
+
+
+Deno.test("toTitleCase", () => {
+  const a = toTitleCase("Geminid meteor shower");
+  assertEquals(a, "Geminid Meteor Shower");
+  const b = toTitleCase("deccan___plateau");
+  assertEquals(b, "Deccan Plateau");
+  const c = toTitleCase("parseURLToJSON", null, "_");
+  assertEquals(c, "Parse_Url_To_Json");
+});
+
+
+
+
 Deno.test("toKebabCase", () => {
   const a = toKebabCase("Malwa Plateau");
   assertEquals(a, "malwa-plateau");
-  const b = toKebabCase("::chota::nagpur::", null, "_");
-  assertEquals(b, "chota_nagpur");
-  const c = toKebabCase("deccan___plateau", /_+/g, ".");
-  assertEquals(c, "deccan.plateau");
-  const d = toKebabCase("Some text_with-mixed CASE");
-  assertEquals(d, "some-text-with-mixed-case");
-  const e = toKebabCase("IAmListeningToFMWhileLoadingDifferentURL");
-  assertEquals(e, "i-am-listening-to-fm-while-loading-different-url");
+  const b = toKebabCase("malwaPlateau");
+  assertEquals(b, "malwa-plateau");
+  const c = toKebabCase("::chota::nagpur::", null, "_");
+  assertEquals(c, "chota_nagpur");
+  const d = toKebabCase("deccan___plateau", /_+/g, ".");
+  assertEquals(d, "deccan.plateau");
+  const e = toKebabCase("Some text_with-mixed CASE");
+  assertEquals(e, "some-text-with-mixed-case");
+  const f = toKebabCase("someTextWithMixedCase");
+  assertEquals(f, "some-text-with-mixed-case");
+  const g = toKebabCase("IAmListeningToFMWhileLoadingDifferentURL");
+  assertEquals(g, "i-am-listening-to-fm-while-loading-different-url");
+  // const h = toKebabCase("I can't believe it's not butter!");
+  // assertEquals(h, "i-cant-believe-its-not-butter");
+});
+
+
+
+
+Deno.test("toSlugCase", () => {
+  const a = toSlugCase("Malwa Plateau");
+  assertEquals(a, "malwa-plateau");
+  const b = toSlugCase("malwaPlateau");
+  assertEquals(b, "malwa-plateau");
+  const c = toSlugCase("Curaçao São Tomé & Príncipe!");
+  assertEquals(c, "curacao-sao-tome-principe");
+  const d = toSlugCase("你好世界 hello world");
+  assertEquals(d, "hello-world");
+  // const e = toSlugCase("Æther & Œuvre — résumé", null, "_");
+  // assertEquals(e, "aether_oeuvre_resume");
 });
 
 
