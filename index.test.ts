@@ -1232,6 +1232,10 @@ Deno.test("toKebabCase", () => {
   assertEquals(b, "chota_nagpur");
   const c = toKebabCase("deccan___plateau", /_+/g, ".");
   assertEquals(c, "deccan.plateau");
+  const d = toKebabCase("Some text_with-mixed CASE");
+  assertEquals(d, "some-text-with-mixed-case");
+  const e = toKebabCase("IAmListeningToFMWhileLoadingDifferentURL");
+  assertEquals(e, "i-am-listening-to-fm-while-loading-different-url");
 });
 
 

@@ -1381,7 +1381,7 @@ function _toTitleCase(x: string, re: RegExp | null=null): string {
 export function toKebabCase(x: string, re: RegExp | null=null, sep: string="-"): string {
   const words = x.split(re || /[^0-9A-Za-z]+/g).filter(IDENTITY);
   for (let i=0, I=words.length; i<I; ++i) {
-    words[i] = words[i].replace(/[A-Z]+/g, m => m.length===1? sep + m : sep + m.slice(0, -1) + sep + m.slice(-1));
+    words[i] = words[i].replace(/[A-Z]+/g, (m, off) => m.length===1 || off + m.length===words[i].length? sep + m : sep + m.slice(0, -1) + sep + m.slice(-1));
     if (words[i].startsWith(sep)) words[i] = words[i].slice(sep.length);
   }
   return words.join(sep).toLowerCase();
