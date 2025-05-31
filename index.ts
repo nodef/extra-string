@@ -43,6 +43,11 @@ export const MAX_CODE_POINT: number = 0x10FFFF;
 function IDENTITY<T>(v: T): T {
   return v;
 }
+
+
+function mod(x: number, y: number): number {
+  return x - y * Math.floor(x/y);
+}
 //#endregion
 
 
@@ -332,6 +337,7 @@ export function substring(x: string, start: number, end?: number): string {
 export function split(x: string, separator?: string | RegExp, limit?: number): string[] {
   return x.split(separator as string | RegExp, limit);
 }
+// splitBy(x: string, separator: function, limit?: number): string[]?
 //#endregion
 
 
@@ -1385,6 +1391,7 @@ export function toWords(x: string, re: RegExp | null=null): string[] {
   }
   return words;
 }
+// NOTE: Shouldn't this be called splitWords() or splitIntoWords() or splitIntoTokens()?
 
 
 /**
@@ -1504,23 +1511,22 @@ export {toSlugCase as slugify};
 
 
 
-//#region TRANSFORM (TODO)
+//#region TRANSFORM
 /**
  * Get characters that cycle through string.
  * @param x a string
  * @param start start index
  * @param count number of characters [length]
  */
-// function cycle(x: string, start: number, count: number=x.length): string {
-//   let X = x.length;
-//   if(count<=0 || X===0) return "";
-//   let start = index(x, start);
-//   let a = x.slice(start, start+count);
-//   count -= a.length;
-//   for(let m=0, M=Math.floor(count/X); m<M; m++)
-//     a += x;
-//   return a += x.slice(0, count % X);
-// }
+export function cycle(x: string, start: number, count: number=x.length): string {
+  if (!x || count<=0) return "";
+  let a = x.slice(start, start + count);
+  count  -= a.length;  // start = index(x, start);
+  const M = Math.floor(count / x.length);
+  for (let m=0; m<M; m++)
+    a += x;
+  return a += x.slice(0, count % x.length);
+}
 
 
 /**
@@ -1528,10 +1534,11 @@ export {toSlugCase as slugify};
  * @param x a string
  * @param n rotate amount (+ve: left, -ve: right)
  */
-// function rotate(x: string, n: number): string {
-//   let i = mod(n, x.length);
-//   return x.slice(i) + x.slice(0, i);
-// }
+export function rotate(x: string, n: number): string {
+  const i = mod(n, x.length);
+  return x.slice(i) + x.slice(0, i);
+}
+
 
 // function replacePrefix(str, pre, rep) {
 //   return str.startsWith(pre)? rep+str.substr(pre.length):str;
@@ -1559,7 +1566,6 @@ export {toSlugCase as slugify};
 
 // swapRange()
 
-
 // import {cutAt as arrayCut} from "extra-array";
 
 /**
@@ -1581,8 +1587,6 @@ export {toSlugCase as slugify};
 // function cutRight(x: string, is: Iterable<number>): string[] {
 //   return arrayCutRight(x as any, is as any) as any;
 // }
-
-
 
 // function unionCompare(x: string, y: string, fn: any=null): string {
 //   // let fn = fn||cmp;

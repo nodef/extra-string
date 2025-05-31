@@ -121,6 +121,9 @@ xstring.tverskyDistance('pikachu', 'raichu', 3, 0.2, 0.4);
 | [substring] | Extract section of string. |
 | [split] | Split string by a given separator into substrings. |
 |  |  |
+| [cycle] | Get characters that cycle through string. |
+| [rotate] | Rotate characters in string. |
+|  |  |
 | [trimStart] | Remove whitespace from begining of string. |
 | [trimEnd] | Remove whitespace from end of string. |
 | [trim] | Remove whitespace from begining and end of string. |
@@ -233,6 +236,8 @@ As of 26 June 2025, this project is licensed under AGPL-3.0. Previous versions r
 [slice]: https://jsr.io/@nodef/extra-string/doc/~/slice
 [substring]: https://jsr.io/@nodef/extra-string/doc/~/substring
 [split]: https://jsr.io/@nodef/extra-string/doc/~/split
+[cycle]: https://jsr.io/@nodef/extra-string/doc/~/cycle
+[rotate]: https://jsr.io/@nodef/extra-string/doc/~/rotate
 [trimStart]: https://jsr.io/@nodef/extra-string/doc/~/trimStart
 [trimEnd]: https://jsr.io/@nodef/extra-string/doc/~/trimEnd
 [trim]: https://jsr.io/@nodef/extra-string/doc/~/trim
