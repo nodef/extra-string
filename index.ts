@@ -1,7 +1,3 @@
-// Copyright (C) 2025 Subhajit Sahu
-// SPDX-License-Identifier: AGPL-3.0-or-later
-// See LICENSE for full terms
-
 //#region CONSTANTS
 /** Decimal digits 0-9. */
 export const DIGITS: string     = "0123456789";

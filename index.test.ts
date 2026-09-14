@@ -1,8 +1,4 @@
-// Copyright (C) 2025 Subhajit Sahu
-// SPDX-License-Identifier: AGPL-3.0-or-later
-// See LICENSE for full terms
-
-import {assert, assertEquals} from "jsr:@std/assert";
+import {assert, assertEquals} from "@std/assert";
 import * as xstring from "./index.ts";
 import {
   type ReplaceFunction,

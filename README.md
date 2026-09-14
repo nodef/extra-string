@@ -1,18 +1,16 @@
-<!-- Copyright (C) 2025 Subhajit Sahu -->
-<!-- SPDX-License-Identifier: AGPL-3.0-or-later -->
-<!-- See LICENSE for full terms -->
-
-A [string] is a sequence of characters. In JavaScript, strings are not [mutable]. Any transfomation of a *string*, such as `slice` or `concat` generates a *new string*. The *JavaScript runtime* however may optimize this behavior by *mutating strings behind the scenes*, when it can be guarenteed that the previous string is *not accessible* to the programmer. The *runtime* may also *avoid copying slices* of a string, or even *concatenation of slices of* *strings*, by implementing it as a *series of lookups into existing strings*. Food for thought.
-
-This package provides **functions** for generating spaces, querying *about* a string, *comparing* strings, getting *parts* of a string, *searching* a string, *transforming* a string or its *case*, finding *ngrams* in strings, finding *similarity/distance* between strings, and array-like functions. All **built-in** string functions are also included. Finally, *constants* for *ASCII characters*, and *minimum/maximum code point* are included.
+A [string] is a sequence of characters.
 
 ▌
 📦 [JSR](https://jsr.io/@nodef/extra-string),
+📦 [NPM](https://www.npmjs.com/package/extra-string),
 📰 [Docs](https://jsr.io/@nodef/extra-string/doc).
+
+In JavaScript, strings are not [mutable]. Any transfomation of a *string*, such as `slice` or `concat` generates a *new string*. The *JavaScript runtime* however may optimize this behavior by *mutating strings behind the scenes*, when it can be guarenteed that the previous string is *not accessible* to the programmer. The *runtime* may also *avoid copying slices* of a string, or even *concatenation of slices of* *strings*, by implementing it as a *series of lookups into existing strings*. Food for thought.
+
+This package provides **functions** for generating spaces, querying *about* a string, *comparing* strings, getting *parts* of a string, *searching* a string, *transforming* a string or its *case*, finding *ngrams* in strings, finding *similarity/distance* between strings, and array-like functions. All **built-in** string functions are also included. Finally, *constants* for *ASCII characters*, and *minimum/maximum code point* are included.
 
 [string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 [mutable]: https://developer.mozilla.org/en-US/docs/Glossary/Mutable
-[jsDelivr CDN]: https://cdn.jsdelivr.net/npm/extra-string.web/index.js
 
 <br>
 
@@ -185,14 +183,6 @@ xstring.tverskyDistance('pikachu', 'raichu', 3, 0.2, 0.4);
 - [js-string-compression package by Chen Caishun](https://github.com/cschen1205/js-string-compression)
 - [@stdlib/string-base-trim package by @stdlib-js](https://github.com/stdlib-js/string-base-trim)
 - [How do you reverse a string in-place in JavaScript?](https://stackoverflow.com/a/959004/1413259)
-
-<br>
-<br>
-
-
-## License
-
-As of 26 June 2025, this project is licensed under AGPL-3.0. Previous versions remain under MIT.
 
 <br>
 <br>

@@ -1,6 +1,5 @@
 # Generated files
 .build/
-*.d.ts
 *.map
 
 # Logs
