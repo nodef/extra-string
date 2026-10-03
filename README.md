@@ -2,7 +2,7 @@ A [string] is a sequence of characters.
 
 ▌
 📦 [JSR](https://jsr.io/@nodef/extra-string),
-📦 [NPM](https://www.npmjs.com/package/extra-string),
+📦 [NPM](https://www.npmjs.com/package/@nodef/extra-string),
 📰 [Docs](https://jsr.io/@nodef/extra-string/doc).
 
 In JavaScript, strings are not [mutable]. Any transfomation of a *string*, such as `slice` or `concat` generates a *new string*. The *JavaScript runtime* however may optimize this behavior by *mutating strings behind the scenes*, when it can be guarenteed that the previous string is *not accessible* to the programmer. The *runtime* may also *avoid copying slices* of a string, or even *concatenation of slices of* *strings*, by implementing it as a *series of lookups into existing strings*. Food for thought.
